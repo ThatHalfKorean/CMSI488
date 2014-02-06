@@ -27,7 +27,7 @@ This one doesn't seem to be 13 yet, but probably still delicious.
 
 The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. 
           
-          fer ent i iz 1 derp i izrpwdndby 10 derp i++ dur
+          fer ent i = 1 derp i != 10 derp i++ dur
                     pront i*i derp
           urp
 
