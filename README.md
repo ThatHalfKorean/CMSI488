@@ -11,11 +11,11 @@ To the untrained ear (i.e. communications and history majors), describing a prog
 
 Ah, the classic "Hello, World" example. Even this masterpiece can be massacred with enough poor spelling and grammar. 
 
-          pront "Hello, World" derp
+          pront "Hello, World" derp                         console.log("Hello, World");
           
 In general, speaking in such a formal fashion is not the way of the derpodile. Throws off his groove, man. The following code is more appropriate for the average derp.
 
-          pront "Halloh, wherlds" derp
+          pront "Halloh, wherlds" derp                      console.log("Halloh, wherlds");
           
 Remember, try to sound like a 13 year old who is trying really hard to be funny but everyone wants him/her to be eaten by a crocodile. If you don't want to sound like a 13 year old, use JavaScript. No one is making you do this.
 
@@ -27,9 +27,9 @@ This one doesn't seem to be 13 yet, but probably still delicious.
 
 The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. To make things slightly less painful, we chose to use the ">" and "<" signs for "greater than" and "less than" only because they look like crocodile mouths. 
           
-          fer ent i = 1 derp i <= 10 derp i++ dur
-                    pront i*i derp
-          urp
+          fer ent i = 1 derp i <= 10 derp i++ dur                     for ( var i = 1; i <= 10; i++ ) {
+                    pront i*i derp                                              console.log(i*i);
+          urp                                                         }
           
 This snippet of code prints out perfect squares using numbers between 1 and 10. Crocodiles like perfect squares. 
           
@@ -55,7 +55,7 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
           
           Declaration ::= VarDec | TypeDec | FunDec
           
-          VarDec  ::= Type  Id  ('='  Exp)?  'derp'
+          VarDec  ::= Type  Id  ('iz'  Exp)?  'derp'
           
           TypeDec ::= 'thang'  Id  'dur' (Type  id  derp)+ 'urp'
           
