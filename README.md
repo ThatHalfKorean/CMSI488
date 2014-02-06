@@ -21,6 +21,8 @@ Remember, try to sound like a 13 year old who is trying really hard to be funny 
 
 ![Nur-hur the Crocodile](http://4.bp.blogspot.com/-S7-rwJLxkiw/TwBi-bRsnQI/AAAAAAAABr0/au90p6D5vYc/s1600/Funny%2BCrocodile.jpg "Derpodile eating an obnoxious user")
 
+This one doesn't seem to be 13 yet, but probably still delicious. 
+
 
 
 **Syntax**
