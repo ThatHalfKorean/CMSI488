@@ -5,7 +5,7 @@ Derpodile
 
 Summary
 =======
-To the untrained ear (i.e. communications and history majors), describing a programming language aloud sounds like a foreign language. Derpodile is created with the intention of sounding like an idiot when you verbally describe your program, help you to make friends with these "high level users", and confuse your enemies. As a consequence, coding in this language will make you wish for your head to be inside a crodiles mouth (your brain will self destruct anyway so might as well feed a hungry croc). Inspired by general internet memes, along with associated spellings and onomatopeoias that indicate a lack of intelligence, Derpodile sounds dumb but has a powerful bite! This language is strongly and statically typed and is not intended for your average idiot.
+To the untrained ear (i.e. communications and history majors), describing a programming language aloud sounds like a foreign language. Derpodile is created with the intention of sounding like an idiot when you verbally describe your program, help you to make friends with these "high level users", and confuse your enemies. As a consequence, coding in this language will make you wish for your head to be inside a crocodiles mouth (your brain will self destruct anyway so might as well feed a hungry croc). Inspired by general internet memes, along with associated spellings and onomatopeoias that indicate a lack of intelligence, Derpodile sounds dumb but has a powerful bite! This language is strongly and statically typed and is not intended for your average idiot.
 
 **"Hello World" Example**
 
