@@ -55,7 +55,7 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
           
           Declaration ::= VarDec | TypeDec | FunDec
           
-          VarDec  ::= Type  Id  ('iz'  Exp)?  'derp'
+          VarDec  ::= Type  Id  ('='  Exp)?  'derp'
           
           TypeDec ::= 'thang'  Id  'dur' (Type  id  derp)+ 'urp'
           
