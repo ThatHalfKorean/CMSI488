@@ -1,9 +1,6 @@
-CMSI488
+Derpodile
 =======
 
-Deprodile
-
-========
 **Summary**
 
 To the untrained ear (i.e. communications and history majors), describing a programming language aloud sounds like a foreign language. Derpodile is created with the intention of sounding like an idiot when you verbally describe your program to make friends with these "high level users" and confuse your enemies. Inspired by general internet memes, along with associated spellings and onomatopeoias that indicate a lack of intelligence. However, this language is strong and statically typed and is not intended for idiot use.
