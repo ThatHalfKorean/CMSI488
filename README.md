@@ -27,7 +27,7 @@ This one doesn't seem to be 13 yet, but probably still delicious.
 
 The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. 
           
-          fer ent i = 1 derp i != 10 derp i++ dur
+          fer ent i = 1 derp i <= 10 derp i++ dur
                     pront i*i derp
           urp
 
@@ -69,7 +69,7 @@ The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling 
                     |   Id
                     |   Type  '[]'
                     
-          AssignmentStmt ::= Var  'iz'  Exp
+          AssignmentStmt ::= Var  '='  Exp
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
@@ -92,4 +92,4 @@ The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling 
           
           UnaryOp  ::=  '-' | 'nawt'
           
-          BinaryOp ::=  '&&' | '||' | 'pwns' | 'izrpwns' | 'izz' | 'izznt' | 'pwndby' | 'izrpwndby' | '+' | '-' | '\' |'*'
+          BinaryOp ::=  '&&' | '||' | '>' | '>=' | 'izz' | 'izznt' | '<' | '<=' | '+' | '-' | '\' |'*'
