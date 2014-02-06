@@ -28,6 +28,7 @@ This one doesn't seem to be 13 yet, but probably still delicious.
 **Syntax**
 
           Script   ::=  Stmt+
+          
           Stmt     ::=  Declaration
                     |   Increment  'derp'
                     |   'pront'  Exp  'derp'
@@ -50,6 +51,7 @@ This one doesn't seem to be 13 yet, but probably still delicious.
           FunDec  ::= Type  Id  Params  Block
           
           Increment  ::=  Var  ('++' | '--')
+          
           Type     ::=  'ent'
                     |   'floatie'
                     |   'buul'
