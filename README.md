@@ -23,6 +23,16 @@ Remember, try to sound like a 13 year old who is trying really hard to be funny 
 
 This one doesn't seem to be 13 yet, but probably still delicious. 
 
+**For-Loop Example**
+
+The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. 
+          
+          fer ent i iz 1 derp i izrpwdndby 10 derp i++ dur
+                    pront i*i derp
+          urp
+
+          
+
 
 
 **Syntax**
@@ -71,7 +81,7 @@ This one doesn't seem to be 13 yet, but probably still delicious.
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
-          ForLoop        ::= 'fer'  '('  (VarDec)? 'derp'  Exp  'derp'  Increment  ')'  Block
+          ForLoop        ::= 'fer' (VarDec)? 'derp'  Exp  'derp'  Increment  Block
           
           Args           ::=  '('  Exp  (',' Exp)*  ')'
           
