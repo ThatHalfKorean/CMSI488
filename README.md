@@ -11,7 +11,7 @@ To the untrained ear (i.e. communications and history majors), describing a prog
           
           pront "Hello, World" derp
           
-Speaking in such a formal fashion is not the way of the derpodile...
+In general, speaking in such a formal fashion is not the way of the derpodile. Throws off his groove, man.
           
           pront "Halloh, wherlds" derp
           
