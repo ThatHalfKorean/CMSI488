@@ -15,7 +15,7 @@ Speaking in such a formal fashion is not the way of the derpodile...
           
           pront "Halloh, wherlds" derp
           
-Remember, try to sound like a 13 year old who is trying really hard to be funny but everyone wants him/her to be eaten by a crocodile.
+Remember, try to sound like a 13 year old who is trying really hard to be funny but everyone wants him/her to be eaten by a crocodile. If you don't want to sound like a 13 year old, use Javascript. No one is making you do this.
 
 ![Nur-hur the Crocodile](http://4.bp.blogspot.com/-S7-rwJLxkiw/TwBi-bRsnQI/AAAAAAAABr0/au90p6D5vYc/s1600/Funny%2BCrocodile.jpg "Derpodile eating an obnoxious user")
 
