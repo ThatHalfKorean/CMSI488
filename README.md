@@ -59,9 +59,9 @@ This one doesn't seem to be 13 yet, but probably still delicious.
           WhileStmt      ::= 'dile'  Exp  Block
           TryStmt        ::= 'tri'  Block  'ketch' '(' Id ')' Block
           CallStmt       ::= Id  Args
-          PrintStmt      ::= 'pront' Exp
-          ReturnStmt     ::= 'herez' Exp
-          
+          PrintStmt      ::= 'pront' Exp 'derp'
+          ReturnStmt     ::= 'herez' Exp 'derp'
+          ForLoop        ::= 'fer'  '('  (VarDec 'derp')?  Exp  'derp'  Increment  ')'  Block
           Args           ::=  '('  Exp  (',' Exp)*  ')'
           
           Exp      ::=  UnaryOp  Exp
