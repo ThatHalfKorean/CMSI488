@@ -55,6 +55,8 @@ Remember, try to sound like a 13 year old who is trying really hard to be funny 
           WhileStmt      ::= 'dile'  Exp  Block
           TryStmt        ::= 'tri'  Block  'ketch' '(' Id ')' Block
           CallStmt       ::= Id  Args
+          PrintStmt      ::= 'pront' Exp
+          ReturnStmt     ::= 'herez' Exp
           
           Args           ::=  '('  Exp  (',' Exp)*  ')'
           
