@@ -1,11 +1,11 @@
 Derpodile
 =======
 
-![Nur-hur the Crocodile](http://assets.nydailynews.com/polopoly_fs/1.1096989!/img/httpImage/image.jpg_gen/derivatives/landscape_635/croc17n-1-web.jpg "Derpodile Mascot")
+![Nur-hur the Crocodile](http://assets.nydailynews.com/polopoly_fs/1.1096989!/img/httpImage/image.jpg_gen/derivatives/landscape_635/croc17n-1-web.jpg "Nur-hur the Crocodile")
 
 Summary
 =======
-To the untrained ear (i.e. communications and history majors), describing a programming language aloud sounds like a foreign language. Derpodile is created with the intention of sounding like an idiot when you verbally describe your program to make friends with these "high level users" and confuse your enemies. Inspired by general internet memes, along with associated spellings and onomatopeoias that indicate a lack of intelligence, Derpodile sounds dumb but has a powerful bite! This language is strongly and statically typed and is not intended for your average idiot.
+To the untrained ear (i.e. communications and history majors), describing a programming language aloud sounds like a foreign language. Derpodile is created with the intention of sounding like an idiot when you verbally describe your program, help you to make friends with these "high level users", and confuse your enemies. Inspired by general internet memes, along with associated spellings and onomatopeoias that indicate a lack of intelligence, Derpodile sounds dumb but has a powerful bite! This language is strongly and statically typed and is not intended for your average idiot.
 
 **"Hello World" Example**
 
