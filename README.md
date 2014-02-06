@@ -25,12 +25,13 @@ This one doesn't seem to be 13 yet, but probably still delicious.
 
 **For-Loop Example**
 
-The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. 
+The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. To make things slightly less painful, we chose to use the ">" and "<" signs for "greater than" and "less than" only because they look like crocodile mouths. 
           
           fer ent i = 1 derp i <= 10 derp i++ dur
                     pront i*i derp
           urp
-
+          
+This snippet of code prints out perfect squares using numbers between 1 and 10. Crocodiles like perfect squares. 
           
 
 
