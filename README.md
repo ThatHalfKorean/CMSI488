@@ -50,4 +50,4 @@ To the untrained ear (i.e. communications and history majors), describing a prog
           
           UnaryOp  ::=  '-' | 'nawt'
           
-          BinaryOp ::=  '&&' | '||' | 'pwns' | 'izrpwns' | 'izz' | 'izznt' | 'pwndby' | 'izrpwndby' | '+' | '-' | '\' |           '*'
+          BinaryOp ::=  '&&' | '||' | 'pwns' | 'izrpwns' | 'izz' | 'izznt' | 'pwndby' | 'izrpwndby' | '+' | '-' | '\' |'*'
