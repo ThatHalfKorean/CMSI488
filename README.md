@@ -93,7 +93,7 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
           
           UnaryOp        ::=  '-' | 'nawt'
           
-          LogicalOp       ::=  '&&' | '||' 
+          LogicalOp      ::=  '&&' | '||' 
           
           ComparisonOp   ::= '>' | '>=' | '<' | '<=' | 'izz' | 'izznt'
           
