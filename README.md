@@ -86,12 +86,12 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
           
           Args           ::=  '('  Exp  (',' Exp)*  ')'
           
-          Exp           →  EXP1 (LogicalOp EXP1)*
-          Exp1          →  EXP2 (ComparisonOp EXP2)*
-          Exp2          →  EXP3 (AddOp EXP3)?
-          Exp3          →  EXP4 (MultOp EXP4)*
-          Exp4          →  UnaryOp? EXP5
-          Exp5          →  IntLit | StringLit | 'tru' | 'nuhuh' | FloatLit | Call
+          Exp            ::=  Exp1 (LogicalOp Exp1)*
+          Exp1           ::=  Exp2 (ComparisonOp Exp2)*
+          Exp2           ::=  Exp3 (AddOp Exp3)?
+          Exp3           ::=  Exp4 (MultOp Exp4)*
+          Exp4           ::=  UnaryOp? Exp5
+          Exp5           ::=  IntLit | StringLit | 'tru' | 'nuhuh' | FloatLit | Call
           
           UnaryOp        ::=  '-' | 'nawt'
           
