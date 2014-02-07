@@ -91,6 +91,14 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
                     |   '('  Exp  ')'
                     |   IntLit | StringLit | 'tru' | 'nuhuh' | FloatLit | Call
           
-          UnaryOp  ::=  '-' | 'nawt'
+          UnaryOp        ::=  '-' | 'nawt'
           
-          BinaryOp ::=  '&&' | '||' | '>' | '>=' | 'izz' | 'izznt' | '<' | '<=' | '+' | '-' | '\' |'*'
+          BinaryOp       ::=  '&&' | '||' 
+          
+          ComparisonOp   ::= '>' | '>=' | '<' | '<=' | 'izz' | 'izznt'
+          
+          AddOp          ::= '+' | '-'
+          
+          MultOp         ::= '*' | "/"
+          
+          
