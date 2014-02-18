@@ -47,12 +47,12 @@ function scan(line, linenumber, tokens) {
     if (line[pos] == '-' && line[pos+1] == '-') break
 
     // Two-character tokens
-    if (/<=|>=|\|\||&&|~</.test(line.substring(pos, pos+2))) {
+    if (/+=|-=|*=|/=|<=|>=|\|\||&&|~</.test(line.substring(pos, pos+2))) {
       emit(line.substring(pos, pos+2))
       pos += 2
 
     // One-character tokens
-    } else if (/[+\-*\/(),<>]/.test(line[pos])) {
+    } else if (/[+\-*\/(),<>"]/.test(line[pos])) {
       emit(line[pos++])
 
     // Reserved words or identifiers
