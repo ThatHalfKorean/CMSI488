@@ -1,4 +1,4 @@
-~o< This Iki program has close to all syntactic and semantic forms
+~o< I AM A CROC
 nom x derp
 nom y derp
 
@@ -9,7 +9,7 @@ dile 4 - x <= 10 && 0 == 1 dur
     x = x==x && not (y > 3) || x;
     pront y * (3 + y);
   urp
-  ~o< Looks like we can do a lot of optimizations here too
+  ~o< I attack when you least expect it. HAhah!!
   x = 1 + 2 - 3;
 urp
 
