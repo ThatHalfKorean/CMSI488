@@ -32,8 +32,14 @@ The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling 
           urp                                                         }
           
 This snippet of code prints out perfect squares using numbers between 1 and 10. Crocodiles like perfect squares. 
-          
 
+**Function Example**
+
+As with most creatures, crocodiles like to multiply. It comes in handy when ordering large shipments of yoga mats or figuring out how to tip the waiter (s)he just ate. 
+          
+          floatie tipCalculator (floatie amount, floatie tip) dur     func tipCalculator (num amount, num tip) {
+                    herez amount * (tip/100) derp                               return amount * (tip/100);
+          urp                                                         }
 
 
 **Syntax**
@@ -51,17 +57,17 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
                     |   forLoop
                     |   returnStmt
           
-          Block    ::=  'dur'  Stmt+  'urp'
+          Block       ::=  'dur'  Stmt+  'urp'
           
           Declaration ::= VarDec | TypeDec | FunDec
           
-          VarDec  ::= Type  Id  ('='  Exp)?  'derp'
+          VarDec      ::= Type  Id  ('='  Exp)?  'derp'
           
-          TypeDec ::= 'thang'  Id  'dur' (Type  Id  derp)+ 'urp'
+          TypeDec     ::= 'thang'  Id  'dur' (Type  Id  derp)+ 'urp'
           
-          FunDec  ::= Type  Id  Params  Block
+          FunDec      ::= Type  Id  Params  Block
           
-          Increment  ::=  Id  ('++' | '--')
+          Increment   ::=  Id  ('++' | '--')
           
           Type     ::=  'ent'
                     |   'floatie'
@@ -92,6 +98,8 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
           Exp3           ::=  Exp4 (MultOp Exp4)*
           Exp4           ::=  UnaryOp? Exp5
           Exp5           ::=  IntLit | StringLit | 'tru' | 'nuhuh' | FloatLit | Call
+          
+          VarExp         ::= Id ( '[' Exp ']' | '.' Id | Args )*
           
           UnaryOp        ::=  '-' | 'nawt'
           
