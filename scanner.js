@@ -68,6 +68,10 @@ function scan(line, linenumber, tokens) {
     // Numeric literals
     } else if (/\d/.test(line[pos])) {
       while (/\d/.test(line[pos])) pos++
+      if(/\./.test(line[pos+1])){
+        pos++
+        while(/\d/.test(line[pos])) pos++
+      }
       emit('INTLIT', line.substring(start, pos))
     
     } else {
