@@ -13,7 +13,7 @@ dile 4 - x <= 10 && 0 == 1 dur
   x = 1 + 2 - 3;
 urp
 
-buul test derp ~o< ok
+buul test derp ~o< Nurr-hurr strikes again
 test = false && 8 != 2 || test && !test;
 
 pront y;
