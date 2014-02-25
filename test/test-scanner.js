@@ -5,7 +5,7 @@ var i = require('util').inspect
 
 describe('The scanner', function () {
      it('scans the simplest program', function (done) {
-    scan('test/data/good-programs/hello.derp', function (tokens) {
+    scan('./data/good-programs/hello.derp', function (tokens) {
       tokens.length.should.equal(4)
       i(tokens[0]).should.equal(i({kind:'pront',lexeme:'pront',line:1,col:1}))
       i(tokens[1]).should.equal(i({kind:'INTLIT',lexeme:'0',line:1,col:7}))
@@ -16,7 +16,7 @@ describe('The scanner', function () {
   })
 
   it('properly handles comments and blank lines', function (done) {
-    scan('test/data/token-tests/comments-and-blank-lines', function (tokens) {
+    scan('./data/token-tests/comments-and-blank-lines', function (tokens) {
       tokens.length.should.equal(4)
       i(tokens[0]).should.equal(i({kind:'nom',lexeme:'nom',line:1,col:1}))
       i(tokens[1]).should.equal(i({kind:'ID',lexeme:'x',line:3,col:3}))
@@ -27,7 +27,7 @@ describe('The scanner', function () {
   })
   
   it('reads symbolic tokens properly', function (done) {
-    scan('test/data/token-tests/symbols', function (tokens) {
+    scan('./data/token-tests/symbols', function (tokens) {
       i(tokens[0]).should.equal(i({kind:'<=',lexeme:'<=',line:1,col:1}))
       i(tokens[1]).should.equal(i({kind:'<',lexeme:'<',line:1,col:3}))
       i(tokens[2]).should.equal(i({kind:',',lexeme:',',line:1,col:4}))
@@ -45,7 +45,7 @@ describe('The scanner', function () {
   })
 
   it('distinguishes reserved words and identifiers', function (done) {
-    scan('test/data/token-tests/words', function (tokens) {
+    scan('./data/token-tests/words', function (tokens) {
       i(tokens[0]).should.equal(i({kind:'ID',lexeme:'dilexy',line:1,col:1}))
       i(tokens[1]).should.equal(i({kind:'dile',lexeme:'dile',line:1,col:9}))
       i(tokens[2]).should.equal(i({kind:'ID',lexeme:'dil',line:1,col:15}))
@@ -67,7 +67,7 @@ describe('The scanner', function () {
   })
 
   it('scans numbers properly', function (done) {
-    scan('test/data/token-tests/numbers', function (tokens) {
+    scan('./data/token-tests/numbers', function (tokens) {
       i(tokens[0]).should.equal(i({kind:'ID',lexeme:'dur89x7',line:1,col:1}))
       i(tokens[2]).should.equal(i({kind:'INTLIT',lexeme:'222289',line:1,col:10}))
       i(tokens[3]).should.equal(i({kind:'ID',lexeme:'dile9',line:1,col:16}))
@@ -77,7 +77,7 @@ describe('The scanner', function () {
   })
 
   it('detects illegal characters', function (done) {
-    scan('test/data/token-tests/illegal-char', function () {
+    scan('./data/token-tests/illegal-char', function () {
       error.count.should.equal(1)
       done()
     })
