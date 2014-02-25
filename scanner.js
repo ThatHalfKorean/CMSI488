@@ -72,7 +72,7 @@ function scan(line, linenumber, tokens) {
         pos++
         while(/\d/.test(line[pos])) pos++
       }
-      emit('INTLIT', line.substring(start, pos))
+      emit('NUMLIT', line.substring(start, pos))
     
     } else {
       error('Illegal character: ' + line[pos], {line: linenumber, col: pos+1})
