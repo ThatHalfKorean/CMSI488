@@ -9,7 +9,7 @@ describe('The scanner', function () {
     scan('./data/good-programs/hello.derp', function (tokens) {
       tokens.length.should.equal(4)
       i(tokens[0]).should.equal(i({kind:'pront',lexeme:'pront',line:1,col:1}))
-      i(tokens[1]).should.equal(i({kind:'INTLIT',lexeme:'0',line:1,col:7}))
+      i(tokens[1]).should.equal(i({kind:'NUMLIT',lexeme:'0',line:1,col:7}))
       i(tokens[2]).should.equal(i({kind:'derp',lexeme:'derp',line:1,col:9}))
       i(tokens[3]).should.equal(i({kind:'EOF',lexeme:'EOF'}))
       done()
@@ -68,9 +68,9 @@ describe('The scanner', function () {
   it('scans numbers properly', function (done) {
     scan('./data/token-tests/numbers', function (tokens) {
       i(tokens[0]).should.equal(i({kind:'ID',lexeme:'dur89x7',line:1,col:1}))
-      i(tokens[2]).should.equal(i({kind:'INTLIT',lexeme:'222289',line:1,col:9}))
+      i(tokens[2]).should.equal(i({kind:'NUMLIT',lexeme:'222289',line:1,col:9}))
       i(tokens[3]).should.equal(i({kind:'ID',lexeme:'dile9',line:1,col:15}))
-      i(tokens[4]).should.equal(i({kind:'INTLIT',lexeme:'02',line:1,col:21}))
+      i(tokens[4]).should.equal(i({kind:'NUMLIT',lexeme:'02',line:1,col:21}))
       done()
     })
   })
