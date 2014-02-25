@@ -103,7 +103,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           VarExp         ::= Id ( '[' Exp ']' | '.' Id | Args )*
           
-          UnaryOp        ::=  '-' | 'nawt'
+          UnaryOp        ::=  '-' | '!'
           
           LogicalOp      ::=  '&&' | '||' 
           
