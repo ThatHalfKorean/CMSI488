@@ -5,7 +5,7 @@ var i = require('util').inspect
 
 describe('The scanner', function () {
      it('scans the simplest program', function (done) {
-    scan('test/data/good-programs/hello.iki', function (tokens) {
+    scan('test/data/good-programs/hello.derp', function (tokens) {
       tokens.length.should.equal(4)
       i(tokens[0]).should.equal(i({kind:'pront',lexeme:'pront',line:1,col:1}))
       i(tokens[1]).should.equal(i({kind:'INTLIT',lexeme:'0',line:1,col:7}))
