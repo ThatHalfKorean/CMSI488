@@ -57,11 +57,11 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
           
           VarDec  ::= Type  Id  ('='  Exp)?  'derp'
           
-          TypeDec ::= 'thang'  Id  'dur' (Type  id  derp)+ 'urp'
+          TypeDec ::= 'thang'  Id  'dur' (Type  Id  derp)+ 'urp'
           
           FunDec  ::= Type  Id  Params  Block
           
-          Increment  ::=  Var  ('++' | '--')
+          Increment  ::=  Id  ('++' | '--')
           
           Type     ::=  'ent'
                     |   'floatie'
@@ -70,7 +70,7 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
                     |   Id
                     |   Type  '[]'
                     
-          AssignmentStmt ::= Var  '='  Exp
+          AssignmentStmt ::= Id '='  Exp
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
