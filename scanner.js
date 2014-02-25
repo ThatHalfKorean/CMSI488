@@ -44,10 +44,10 @@ function scan(line, linenumber, tokens) {
     if (pos >= line.length) break
 
     // Comment
-    if (line[pos] == '-' && line[pos+1] == '-') break
+    if (line[pos] == '~' && line[pos+1] == 'o' && line[pos+2] == '<') break
 
     // Two-character tokens
-    if (/<=|>=|\|\||&&|~</.test(line.substring(pos, pos+2))) {
+    if (/<=|>=|\|\||&&/.test(line.substring(pos, pos+2))) {
       emit(line.substring(pos, pos+2))
       pos += 2
 
