@@ -27,6 +27,7 @@ This one doesn't seem to be 13 yet, but probably still delicious.
 
 The Derpodile for-loop utilizes the same bad grammar and cringe-worthy spelling to make the eloquent and efficient for-loop as much as an eye-sore as possible. To make things slightly less painful, we chose to use the ">" and "<" signs for "greater than" and "less than" only because they look like crocodile mouths. 
           
+          ~o< Dis be comment                                          // This is a comment.
           fer ent i = 1 derp i <= 10 derp i++ dur                     for ( var i = 1; i <= 10; i++ ) {
                     pront i*i derp                                              console.log(i*i);
           urp                                                         }
