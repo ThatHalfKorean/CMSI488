@@ -76,7 +76,7 @@ Granted, this function will not return a neat value rounded to two decimal point
                     |   'buul'
                     |   'werd'
                     |   Id
-                    |   Type  '[]'
+                    |   Type  '[' ']'
                     
           AssignmentStmt ::= Id '='  Exp
           
