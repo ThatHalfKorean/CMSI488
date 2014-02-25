@@ -52,14 +52,14 @@ function scan(line, linenumber, tokens) {
       pos += 2
 
     // One-character tokens
-    } else if (/[+\-*\/(),<>"]/.test(line[pos])) {
+    } else if (/[+\-*\/(),<>!"]/.test(line[pos])) {
       emit(line[pos++])
 
     // Reserved words or identifiers
     } else if (/[A-Za-z]/.test(line[pos])) {
       while (/\w/.test(line[pos]) && pos < line.length) pos++
       var word = line.substring(start, pos)
-      if (/^(?:nom|buul|werd|dile|eef|tru|nuhuh|nawt|derp|tri|ketch|elsheef|elsh|herez|fer|dur|urp|pront|thang|izz|izznt)$/.test(word)) {
+      if (/^(?:nom|buul|werd|dile|eef|tru|foos|derp|tri|ketch|elsheef|elsh|herez|fer|dur|urp|pront|thang|izz|izznt)$/.test(word)) {
         emit(word)
       } else {
         emit('ID', word)
