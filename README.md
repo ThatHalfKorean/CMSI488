@@ -1,7 +1,9 @@
 Derpodile
 =======
 
-![Nur-hur the Crocodile](http://assets.nydailynews.com/polopoly_fs/1.1096989!/img/httpImage/image.jpg_gen/derivatives/landscape_635/croc17n-1-web.jpg "Nur-hur the Crocodile")
+<p align = "center" >
+<![Nur-hur the Crocodile](http://assets.nydailynews.com/polopoly_fs/1.1096989!/img/httpImage/image.jpg_gen/derivatives/landscape_635/croc17n-1-web.jpg "Nur-hur the Crocodile")>
+</p>
 
 Summary
 =======
