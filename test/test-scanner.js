@@ -9,7 +9,7 @@ describe('The scanner', function () {
       tokens.length.should.equal(4)
       i(tokens[0]).should.equal(i({kind:'pront',lexeme:'pront',line:1,col:1}))
       i(tokens[1]).should.equal(i({kind:'INTLIT',lexeme:'0',line:1,col:7}))
-      i(tokens[2]).should.equal(i({kind:';',lexeme:';',line:1,col:8}))
+      i(tokens[2]).should.equal(i({kind:'derp',lexeme:'derp',line:1,col:8}))
       i(tokens[3]).should.equal(i({kind:'EOF',lexeme:'EOF'}))
       done()
     })
