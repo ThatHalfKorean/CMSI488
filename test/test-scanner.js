@@ -3,6 +3,7 @@ var scan = require('../scanner')
 var error = require('../error')
 var i = require('util').inspect
 
+
 describe('The scanner', function () {
      it('scans the simplest program', function (done) {
     scan('./data/good-programs/hello.derp', function (tokens) {
