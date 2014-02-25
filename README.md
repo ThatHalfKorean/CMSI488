@@ -41,6 +41,7 @@ As with most creatures, crocodiles like to multiply. It comes in handy when orde
                     herez amount * (tip/100) derp                               return amount * (tip/100);
           urp                                                         }
 
+Granted, this function will not return a neat value rounded to two decimal points. However, if a croc is smart enough to use a tip calculator it should be smart enough to do basic rounding.
 
 **Syntax**
 
