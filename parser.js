@@ -3,13 +3,13 @@
  *
  *   var parse = require('./parser')
  *
- *   var program = parse(tokens)
+ *   var script = parse(tokens)
  */
 
 var scanner = require('./scanner')
 var error = require('./error')
 
-var Program = require('./entities/program')
+var Script = require('./entities/script')
 var Block = require('./entities/block')
 var Type = require('./entities/type')
 var VariableDeclaration = require('./entities/variabledeclaration')
@@ -32,35 +32,46 @@ var tokens
 
 module.exports = function (scannerOutput) {
   tokens = scannerOutput
-  var program = parseProgram()
+  var script= parseScript()
   match('EOF')
-  return program
+  return script
 }
 
-function parseProgram() {
-  return new Program(parseBlock())
-}
-
-function parseBlock() {
+function parseScript() {
   var statements = []
   do {
     statements.push(parseStatement())
     match(';')
-  } while (at(['var','ID','read','write','while']))
+  } while (at(['var','ID','write','while']))
+  return new Block(statements)
+}
+
+function parseBlock() {
+  match('dur')
+  var statements = []
+  do {
+    statements.push(parseStatement())
+    match(';')
+  } while (at(['var','ID','write','while']))
+  match('urp')
   return new Block(statements)
 }
 
 function parseStatement() {
-  if (at('var')) {
+  if (at('nom','buul','werd')) {
     return parseVariableDeclaration()
   } else if (at('ID')) {
     return parseAssignmentStatement()
-  } else if (at('read')) {
-    return parseReadStatement()
-  } else if (at('write')) {
+  } else if (at('pront')) {
     return parseWriteStatement()
-  } else if (at('while')) {
+  } else if (at('dile')) {
     return parseWhileStatement()
+  } else if (at('tri')) {
+    return parseTryStatement()
+  } else if (at('fer')) {
+    return parseForLoop()
+  } else if (at('herez')) {
+    return parseReturnStatement()
   } else {
     error('Statement expected', tokens[0])
   }
@@ -89,19 +100,8 @@ function parseAssignmentStatement() {
   return new AssignmentStatement(target, source)
 }
 
-function parseReadStatement() {
-  match('read')
-  var variables = []
-  variables.push(new VariableReference(match('ID')))
-  while (at(',')) {
-    match()
-    variables.push(new VariableReference(match('ID')))
-  }
-  return new ReadStatement(variables)
-}
-
 function parseWriteStatement() {
-  match('write')
+  match('pront')
   var expressions = []
   expressions.push(parseExpression())
   while (at(',')) {
@@ -112,17 +112,23 @@ function parseWriteStatement() {
 }
 
 function parseWhileStatement() {
-  match('while')
+  match('dile')
   var condition = parseExpression()
-  match('loop')
   var body = parseBlock()
-  match('end')
   return new WhileStatement(condition, body)
-}  
+}
+
+function parseTryStatement() {
+  match('tri')
+  var body = parseBlock()
+  match('ketch')
+  var body2 = parseBlock()
+  return new TryStatement(body, body2)
+}
 
 function parseExpression() {
   var left = parseExp1()
-  while (at('||') || at('&&')) {
+  while (at('||','&&')) {
     var op = match()
     var right = parseExp1()
     left = new BinaryExpression(op, left, right)
