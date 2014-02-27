@@ -71,6 +71,7 @@ describe('The scanner', function () {
       i(tokens[2]).should.equal(i({kind:'NUMLIT',lexeme:'222289',line:1,col:9}))
       i(tokens[3]).should.equal(i({kind:'ID',lexeme:'dile9',line:1,col:15}))
       i(tokens[4]).should.equal(i({kind:'NUMLIT',lexeme:'02',line:1,col:21}))
+	  i(tokens[5]).should.equal(i({kind:'NUMLIT',lexeme:'1.5',line:1,col:24}))
       done()
     })
   })

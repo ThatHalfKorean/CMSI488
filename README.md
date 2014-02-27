@@ -57,8 +57,8 @@ Granted, this function will not return a neat value rounded to two decimal point
                     |   WhileStmt
                     |   TryStmt
                     |   CallStmt
-                    |   forLoop
-                    |   returnStmt
+                    |   ForStmt
+                    |   ReturnStmt
           
           Block       ::=  'dur'  Stmt+  'urp'
           
@@ -90,7 +90,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
-          ForLoop        ::= 'fer' (VarDec)? 'derp'  Exp  'derp'  Increment  Block
+          ForStmt        ::= 'fer' (VarDec)? 'derp'  Exp  'derp'  Increment  Block
           
           Args           ::=  '('  Exp  (',' Exp)*  ')'
           
@@ -107,7 +107,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           LogicalOp      ::=  '&&' | '||' 
           
-          ComparisonOp   ::= '>' | '>=' | '<' | '<=' | 'izz' | 'izznt'
+          ComparisonOp   ::= '>' | '>=' | '<' | '<=' | '==' | '!='
           
           AddOp          ::= '+' | '-'
           

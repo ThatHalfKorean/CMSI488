@@ -14,14 +14,19 @@ var Block = require('./entities/block')
 var Type = require('./entities/type')
 var VariableDeclaration = require('./entities/variabledeclaration')
 var AssignmentStatement = require('./entities/assignmentstatement')
-var ReadStatement = require('./entities/readstatement')
 var WriteStatement = require('./entities/writestatement')
+var ReturnStatement = require('./entities/returnstatement')
+var IfStatement = require('./entities/ifstatement')
 var WhileStatement = require('./entities/whilestatement')
-var IntegerLiteral = require('./entities/integerliteral')
+var CallStatement = require('./entities/callstatement')
+var ForStatement = require('./entities/forloop')
+var TryStatement = require('./entities/trystatement')
+var NumericLiteral = require('./entities/numericliteral')
 var BooleanLiteral = require('./entities/booleanliteral')
 var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
+var VariableExpression = require('./entities/variableexpression')
 
 var tokens
 
@@ -117,7 +122,7 @@ function parseWhileStatement() {
 
 function parseExpression() {
   var left = parseExp1()
-  while (at('or')) {
+  while (at('||') || at('&&')) {
     var op = match()
     var right = parseExp1()
     left = new BinaryExpression(op, left, right)
@@ -127,16 +132,6 @@ function parseExpression() {
 
 function parseExp1() {
   var left = parseExp2()
-  while (at('and')) {
-    var op = match()
-    var right = parseExp2()
-    left = new BinaryExpression(op, left, right)
-  }
-  return left
-}
-
-function parseExp2() {
-  var left = parseExp3()
   if (at(['<','<=','==','!=','>=','>'])) {
     var op = match()
     var right = parseExp3()
@@ -145,8 +140,8 @@ function parseExp2() {
   return left
 }
 
-function parseExp3() {
-  var left = parseExp4()
+function parseExp2() {
+  var left = parseExp3()
   while (at(['+','-'])) {
     var op = match()
     var right = parseExp4()
@@ -155,8 +150,8 @@ function parseExp3() {
   return left
 }
 
-function parseExp4() {
-  var left = parseExp5()
+function parseExp3() {
+  var left = parseExp4()
   while (at(['*','/'])) {
     op = match()
     right = parseExp5()
@@ -165,21 +160,21 @@ function parseExp4() {
   return left
 }
 
-function parseExp5() {
-  if (at(['-','not'])) {
+function parseExp4() {
+  if (at(['-','!'])) {
     op = match()
-    operand = parseExp6()
+    operand = parseExp5()
     return new UnaryExpression(op, operand)
   } else {
     return parseExp6()
   }
 }
 
-function parseExp6() {
-  if (at(['true','false'])) {
+function parseExp5() {
+  if (at(['tru','foos'])) {
     return new BooleanLiteral.forName(match().lexeme)
-  } else if (at('INTLIT')) {
-    return new IntegerLiteral(match())
+  } else if (at('NUMLIT')) {
+    return new NumericLiteral(match())
   } else if (at('ID')) {
     return new VariableReference(match())
   } else if (at('(')) {
