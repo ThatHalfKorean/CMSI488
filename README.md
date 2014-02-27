@@ -47,36 +47,36 @@ Granted, this function will not return a neat value rounded to two decimal point
 
 **Syntax**
 
-          Script   ::=  Stmt+
+          Script         ::=  Stmt+
           
-          Stmt     ::=  Declaration
-                    |   Increment  'derp'
-                    |   'pront'  Exp  'derp'
-                    |   AssignmentStmt
-                    |   IfStmt
-                    |   WhileStmt
-                    |   TryStmt
-                    |   CallStmt
-                    |   ForStmt
-                    |   ReturnStmt
+          Stmt           ::=  Declaration
+                          |   Increment  'derp'
+                          |   'pront'  Exp  'derp'
+                          |   AssignmentStmt
+                          |   IfStmt
+                          |   WhileStmt
+                          |   TryStmt
+                          |   CallStmt
+                          |   ForStmt
+                          |   ReturnStmt
           
-          Block       ::=  'dur'  Stmt+  'urp'
+          Block          ::=  'dur'  Stmt+  'urp'
           
-          Declaration ::= VarDec | TypeDec | FunDec
+          Declaration    ::= VarDec | TypeDec | FunDec
           
-          VarDec      ::= Type  Id  ('='  Exp)?  'derp'
+          VarDec         ::= Type  Id  ('='  Exp)?  'derp'
           
-          TypeDec     ::= 'thang'  Id  'dur' (Type  Id  derp)+ 'urp'
+          TypeDec        ::= 'thang'  Id  'dur' (Type  Id  derp)+ 'urp'
           
-          FunDec      ::= Type  Id  Params  Block
+          FunDec         ::= Type  Id  Params  Block
           
-          Increment   ::=  Id  ('++' | '--')
+          Increment      ::=  Id  ('++' | '--')
           
-          Type     ::=  'nom'
-                    |   'buul'
-                    |   'werd'
-                    |   Id
-                    |   Type  '[' ']'
+          Type           ::=  'nom'
+                          |   'buul'
+                          |   'werd'
+                          |   Id
+                          |   Type  '[' ']'
                     
           AssignmentStmt ::= Id '='  Exp
           
