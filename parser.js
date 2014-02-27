@@ -19,7 +19,7 @@ var ReturnStatement = require('./entities/returnstatement')
 var IfStatement = require('./entities/ifstatement')
 var WhileStatement = require('./entities/whilestatement')
 var CallStatement = require('./entities/callstatement')
-var ForStatement = require('./entities/forloop')
+var ForStatement = require('./entities/forstatement')
 var TryStatement = require('./entities/trystatement')
 var NumericLiteral = require('./entities/numericliteral')
 var BooleanLiteral = require('./entities/booleanliteral')
@@ -69,7 +69,7 @@ function parseStatement() {
   } else if (at('tri')) {
     return parseTryStatement()
   } else if (at('fer')) {
-    return parseForLoop()
+    return parseForStatement()
   } else if (at('herez')) {
     return parseReturnStatement()
   } else {
@@ -78,7 +78,7 @@ function parseStatement() {
 }
 
 function parseVariableDeclaration() {
-  match('var')
+  match('nom','buul','werd')
   var id = match('ID')
   match(':')
   var type = parseType()
@@ -118,6 +118,15 @@ function parseWhileStatement() {
   return new WhileStatement(condition, body)
 }
 
+// Needs Work
+function parseForStatement() {
+  match('fer')
+  var condition = parseExpression()
+  var body = parseBlock()
+  return new ForStatement(condition, body)
+}
+
+// Rename body/body2
 function parseTryStatement() {
   match('tri')
   var body = parseBlock()
