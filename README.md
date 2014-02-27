@@ -99,9 +99,11 @@ Granted, this function will not return a neat value rounded to two decimal point
           Exp2           ::=  Exp3 (AddOp Exp3)?
           Exp3           ::=  Exp4 (MultOp Exp4)*
           Exp4           ::=  UnaryOp? Exp5
-          Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | Call
+          Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | VarExp
           
           VarExp         ::= Id ( '[' Exp ']' | '.' Id | Args )*
+          
+          ArrayExp       ::= '[' Exp | (Exp ',')+ Exp | '' ']'
           
           UnaryOp        ::=  '-' | '!'
           
@@ -111,6 +113,6 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           AddOp          ::= '+' | '-'
           
-          MultOp         ::= '*' | "/"
+          MultOp         ::= '*' | '/'
           
           
