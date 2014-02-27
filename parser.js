@@ -46,6 +46,7 @@ function parseScript() {
   return new Block(statements)
 }
 
+// while loop likely doesn't work right.
 function parseBlock() {
   match('dur')
   var statements = []
@@ -57,6 +58,7 @@ function parseBlock() {
   return new Block(statements)
 }
 
+// Probably missing some statements.
 function parseStatement() {
   if (at('nom','buul','werd')) {
     return parseVariableDeclaration()
@@ -77,6 +79,7 @@ function parseStatement() {
   }
 }
 
+// Needs to be Derpodiled
 function parseVariableDeclaration() {
   match('nom','buul','werd')
   var id = match('ID')
@@ -85,6 +88,7 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(id, type)
 }
 
+// Hasn't been touched.
 function parseType() {
   if (at(['int','bool'])) {
     return Type.forName(match().lexeme)
@@ -135,6 +139,7 @@ function parseTryStatement() {
   return new TryStatement(body, body2)
 }
 
+// Expressions appear to be fine.
 function parseExpression() {
   var left = parseExp1()
   while (at('||','&&')) {
