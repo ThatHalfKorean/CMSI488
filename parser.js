@@ -122,9 +122,17 @@ function parseWhileStatement() {
   return new WhileStatement(condition, body)
 }
 
-// Needs Work
+// Needs work.
 function parseForStatement() {
   match('fer')
+  var condition = parseExpression()
+  var body = parseBlock()
+  return new ForStatement(condition, body)
+}
+
+// Also needs work.
+function parseIfStatement() {
+  match('eef')
   var condition = parseExpression()
   var body = parseBlock()
   return new ForStatement(condition, body)
