@@ -107,7 +107,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           LogicalOp      ::=  '&&' | '||' 
           
-          ComparisonOp   ::= '>' | '>=' | '<' | '<=' | 'izz' | 'izznt'
+          ComparisonOp   ::= '>' | '>=' | '<' | '<=' | '==' | '!='
           
           AddOp          ::= '+' | '-'
           
