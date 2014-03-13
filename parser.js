@@ -82,21 +82,22 @@ function parseStatement() {
 
 // Needs to be Derpodiled
 function parseVariableDeclaration() {
-  match('nom','buul','werd')
+  var type = match('nom','buul','werd')
   var id = match('ID')
-  match(':')
-  var type = parseType()
-  return new VariableDeclaration(id, type)
+  //match(':')  old code
+  //var type = parseType()
+  //return new VariableDeclaration(id, type)
+  return new VariableDeclaration(type, id)
 }
 
 // Hasn't been touched.
-function parseType() {
-  if (at(['int','bool'])) {
-    return Type.forName(match().lexeme)
-  } else {
-    error('Type expected', tokens[0])
-  }
-}
+//function parseType() {
+//  if (at(['int','bool'])) {
+//    return Type.forName(match().lexeme)
+//  } else {
+//    error('Type expected', tokens[0])
+//  }
+//}
 
 function parseAssignmentStatement() {
   var target = new VariableReference(match('ID'))
