@@ -69,7 +69,7 @@ function scan(line, linenumber, tokens) {
     } else if (/"/.test(line[pos])) {
       while (/[^"]/.test(line[pos]) && pos < line.length) pos++
       if(/"/.test(line[pos])){
-        emit('STRING', line.substring(start, pos))
+        emit('STRLIT', line.substring(start, pos))
       } else {
         error('Expected a " but got: ', line[pos], {line: linenumber, col: pos})
       }
