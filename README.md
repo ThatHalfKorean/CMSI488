@@ -51,7 +51,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           Stmt           ::=  Declaration
                           |   Increment  'derp'
-                          |   'pront'  Exp  'derp'
+                          |   WriteStmt
                           |   AssignmentStmt
                           |   IfStmt
                           |   WhileStmt
@@ -91,6 +91,8 @@ Granted, this function will not return a neat value rounded to two decimal point
           ReturnStmt     ::= 'herez' Exp 'derp'
           
           ForStmt        ::= 'fer' (VarDec)? 'derp'  Exp  'derp'  Increment  Block
+          
+          WriteStmt      ::= 'pront' Exp 'derp'
           
           Args           ::=  '('  Exp  (',' Exp)*  ')'
           
