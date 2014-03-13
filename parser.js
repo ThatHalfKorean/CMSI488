@@ -83,11 +83,11 @@ function parseStatement() {
 }
 
 function idChecker() {
-  match('ID')
+  var target = new VariableReference(match('ID'))
   if (at('=')) {
-    return parseAssignmentStatement()
+    return parseAssignmentStatement(target)
   } else if (at('(')){
-    return parseCallStatement()
+    return parseCallStatement(target)
   }
 }
 
@@ -98,8 +98,7 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(type, id)
 }
 
-function parseAssignmentStatement() {
-  var target = new VariableReference(match('ID'))
+function parseAssignmentStatement(target) {
   match('=')
   var source = parseExpression()
   return new AssignmentStatement(target, source)
