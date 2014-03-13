@@ -91,10 +91,14 @@ function idChecker() {
   }
 }
 
-// Needs to be Derpodiled
+// Needs to be Derpodiled. Need to figure out optional var dec.
 function parseVariableDeclaration() {
   var type = match('nom','buul','werd')
   var id = match('ID')
+  if (at('=')) {
+    match('=')
+    //parseExpression()
+  }
   return new VariableDeclaration(type, id)
 }
 
