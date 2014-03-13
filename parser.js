@@ -64,7 +64,7 @@ function parseStatement() {
   if (at('nom','buul','werd')) {
     return parseVariableDeclaration()
   } else if (at('ID')) {
-    return parseAssignmentStatement()
+    return idChecker()
   } else if (at('pront')) {
     return parseWriteStatement()
   } else if (at('eef')) {
@@ -79,6 +79,15 @@ function parseStatement() {
     return parseReturnStatement()
   } else {
     error('Statement expected', tokens[0])
+  }
+}
+
+function idChecker() {
+  match('ID')
+  if (at('=')) {
+    return parseAssignmentStatement()
+  } else if (at('(')){
+    return parseCallStatement()
   }
 }
 
