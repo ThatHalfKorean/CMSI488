@@ -60,7 +60,7 @@ function parseBlock() {
   return new Block(statements)
 }
 
-// Probably missing some statements.
+// Have to figure out how to differentiate statements that start with ID.
 function parseStatement() {
   if (at('nom','buul','werd')) {
     return parseVariableDeclaration()
@@ -68,6 +68,8 @@ function parseStatement() {
     return parseAssignmentStatement()
   } else if (at('pront')) {
     return parseWriteStatement()
+  } else if (at('eef')) {
+    return parseIfStatement()
   } else if (at('dile')) {
     return parseWhileStatement()
   } else if (at('tri')) {
