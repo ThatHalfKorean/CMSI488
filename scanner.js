@@ -65,6 +65,15 @@ function scan(line, linenumber, tokens) {
         emit('ID', word)
       }
     
+    // String Literals
+    } else if (/"/.test(line[pos])) {
+      while (/[^"]/.test(line[pos]) && pos < line.length) pos++
+      if(/"/.test(line[pos])){
+        emit('STRING', line.substring(start, pos))
+      } else {
+        error('Expected a " but got: ', line[pos], {line: linenumber, col: pos})
+      }
+    
     // Numeric literals
     } else if (/\d/.test(line[pos])) {
       while (/\d/.test(line[pos])) pos++
