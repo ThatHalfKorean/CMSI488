@@ -52,7 +52,7 @@ function scan(line, linenumber, tokens) {
       pos += 2
 
     // One-character tokens
-    } else if (/[+\-*\/(),<>!="]/.test(line[pos])) {
+    } else if (/[+\-*\/(),<>!=]/.test(line[pos])) {
       emit(line[pos++])
 
     // Reserved words or identifiers
