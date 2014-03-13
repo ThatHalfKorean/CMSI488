@@ -23,6 +23,7 @@ var ForStatement = require('./entities/forstatement')
 var TryStatement = require('./entities/trystatement')
 var NumericLiteral = require('./entities/numericliteral')
 var BooleanLiteral = require('./entities/booleanliteral')
+var StringLiteral = require('./entities/stringliteral')
 var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
@@ -203,6 +204,8 @@ function parseExp5() {
     return new BooleanLiteral.forName(match().lexeme)
   } else if (at('NUMLIT')) {
     return new NumericLiteral(match())
+  } else if (at('STRLIT')) {
+    return new StringLiteral(match())
   } else if (at('ID')) {
     return new VariableReference(match())
   } else if (at('(')) {
