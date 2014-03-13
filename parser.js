@@ -48,7 +48,6 @@ function parseScript() {
   return new Block(statements)
 }
 
-// while loop likely doesn't work right.
 function parseBlock() {
   match('dur')
   var statements = []
@@ -87,20 +86,8 @@ function parseStatement() {
 function parseVariableDeclaration() {
   var type = match('nom','buul','werd')
   var id = match('ID')
-  //match(':')  old code
-  //var type = parseType()
-  //return new VariableDeclaration(id, type)
   return new VariableDeclaration(type, id)
 }
-
-// Hasn't been touched.
-//function parseType() {
-//  if (at(['int','bool'])) {
-//    return Type.forName(match().lexeme)
-//  } else {
-//    error('Type expected', tokens[0])
-//  }
-//}
 
 function parseAssignmentStatement() {
   var target = new VariableReference(match('ID'))
