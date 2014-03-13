@@ -30,6 +30,7 @@ var UnaryExpression = require('./entities/unaryexpression')
 var VariableExpression = require('./entities/variableexpression')
 
 var tokens
+var startingTokens = ['nom', 'buul', 'werd', 'dile', 'fer', 'tri', 'ID', 'pront', 'herez', 'thang']
 
 module.exports = function (scannerOutput) {
   tokens = scannerOutput
@@ -43,7 +44,7 @@ function parseScript() {
   do {
     statements.push(parseStatement())
     match(';')
-  } while (at(['var','ID','write','while']))
+  } while (at(startingTokens))
   return new Block(statements)
 }
 
@@ -54,7 +55,7 @@ function parseBlock() {
   do {
     statements.push(parseStatement())
     match(';')
-  } while (at(['var','ID','write','while']))
+  } while (at(startingTokens))
   match('urp')
   return new Block(statements)
 }
