@@ -194,7 +194,7 @@ function parseExp4() {
     operand = parseExp5()
     return new UnaryExpression(op, operand)
   } else {
-    return parseExp6()
+    return parseExp5()
   }
 }
 
