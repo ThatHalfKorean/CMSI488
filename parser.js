@@ -43,7 +43,7 @@ function parseScript() {
   var statements = []
   do {
     statements.push(parseStatement())
-    match(';')
+    match('derp')
   } while (at(startingTokens))
   return new Block(statements)
 }
@@ -54,7 +54,7 @@ function parseBlock() {
   var statements = []
   do {
     statements.push(parseStatement())
-    match(';')
+    match('derp')
   } while (at(startingTokens))
   match('urp')
   return new Block(statements)
