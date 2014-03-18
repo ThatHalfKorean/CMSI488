@@ -3,7 +3,7 @@ function IncrementStatement(target, expressions) {
   this.expressions = expressions
 }
 
-CallStatement.prototype.toString = function () {
+IncrementStatement.prototype.toString = function () {
   return '( Increment' + this.target.lexeme + ')'
 }
 

@@ -27,7 +27,7 @@ var StringLiteral = require('./entities/stringliteral')
 var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
-var VariableExpression = require('./entities/variableexpression')
+//var VariableExpression = require('./entities/variableexpression')
 var IncrementStatment = require('./entities/incrementstatement')
 
 var tokens
@@ -62,7 +62,7 @@ function parseBlock() {
 
 // Have to figure out how to differentiate statements that start with ID.
 function parseStatement() {
-  if (at('nom','buul','werd')) {
+  if (at(['nom','buul','werd'])) {
     return parseVariableDeclaration()
   } else if (at('ID')) {
     return idChecker()
@@ -96,7 +96,7 @@ function idChecker() {
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
 function parseVariableDeclaration() {
-  var type = match('nom','buul','werd')
+  var type = match('nom'||'buul'||'werd')
   var id = match('ID')
   if (at('=')) {
     match('=')
@@ -202,7 +202,7 @@ function parseTryStatement() {
 // Expressions appear to be fine.
 function parseExpression() {
   var left = parseExp1()
-  while (at('||','&&')) {
+  while (at(['||','&&'])) {
     var op = match()
     var right = parseExp1()
     left = new BinaryExpression(op, left, right)

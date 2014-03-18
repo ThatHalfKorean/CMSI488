@@ -17,9 +17,9 @@ function checkForParseErrors(check, baseFilename) {
 describe('The parser', function () {
 
   var checks = {
-    'detects error at empty program': 'empty',
-    'detects errors at start of statement': 'bad-statement',
-    'detects unknown types': 'bad-type',
+     'detects error at empty program': 'empty',
+     'detects errors at start of statement': 'bad-statement',
+     'detects unknown types': 'bad-type',
     'detected bad expressions in assignments': 'bad-expr-in-assignment',
     'detects a missing loop keyword': 'missing-loop',
     'detects a missing end keyword': 'missing-end',
