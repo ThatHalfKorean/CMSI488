@@ -126,6 +126,12 @@ function parseCallStatement(target) {
   return new CallStatement(expressions)
 }
 
+function parseReturnStatement() {
+  match('herez')
+  var expression = parseExpression()
+  return new CallStatement(expression)
+}
+
 function parseWriteStatement() {
   match('pront')
   var expressions = []
