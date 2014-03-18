@@ -3,7 +3,7 @@ function ReturnStatement(expression) {
 }
 
 ReturnStatement.prototype.toString = function () {
-  return '(Herez ' + this.expression.toString() + ')'
+  return '(Herez ' + this.expression + ')'
 }
 
 module.exports = ReturnStatement;

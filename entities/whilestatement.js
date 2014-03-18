@@ -4,7 +4,7 @@ function WhileStatement(condition, body) {
 }
 
 WhileStatement.prototype.toString = function () {
-  return '(dile ' + this.condition + ' ' + this.body + ')'
+  return '(Dile ' + this.condition + ' ' + this.body + ')'
 }
 
 WhileStatement.prototype.analyze = function (context) {

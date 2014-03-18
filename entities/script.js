@@ -1,24 +1,24 @@
 var initialContext = require('../analyzer').initialContext
 var HashMap = require('hashmap').HashMap
 
-function Program(block) {
+function Script(block) {
   this.block = block
 }
 
-Program.prototype.toString = function () {
-  return '(Program ' + this.block + ')' 
+Script.prototype.toString = function () {
+  return '(Script ' + this.block + ')' 
 }
 
-Program.prototype.analyze = function () {
+Script.prototype.analyze = function () {
   this.block.analyze(initialContext())
 }
 
-Program.prototype.optimize = function () {
+Script.prototype.optimize = function () {
   console.log('Optimization is not yet implemented')
   return this
 }
 
-Program.prototype.showSemanticGraph = function () {
+Script.prototype.showSemanticGraph = function () {
   var tag = 0
   var seenEntities = new HashMap();
 
