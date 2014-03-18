@@ -159,9 +159,18 @@ function parseForStatement() {
 // Also needs work.
 function parseIfStatement() {
   match('eef')
-  var condition = parseExpression()
-  var body = parseBlock()
-  return new IfStatement(condition, body)
+  var conditions = []
+  conditions.push(parseExpression())
+  var bodies = []
+  while (at('elsheef')) {
+    match()
+	conditions.push(parseExpression())
+	bodies.push(parseBlock())
+  }
+  bodies.push(parseBlock())
+  match('elsh')
+  bodies.push(parseBlock())
+  return new IfStatement(conditions, bodies)
 }
 
 function parseTryStatement() {
