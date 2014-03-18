@@ -94,7 +94,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           WriteStmt      ::= 'pront' Exp 'derp'
           
-          Args           ::=  '('  Exp  (',' Exp)*  ')'
+          Args           ::=  '('  (Exp  (',' Exp)*)?  ')'
           
           Exp            ::=  Exp1 (LogicalOp Exp1)*
           Exp1           ::=  Exp2 (ComparisonOp Exp2)*
