@@ -13,6 +13,7 @@ Type.prototype.toString = function () {
 
 exports.BUUL = Type.BUUL = new Type('buul')
 exports.NOM = Type.NOM = new Type('nom')
+exports.STR = Type.STR = new Type('werd')
 exports.forName = function (name) {return cache[name]}
 
 Type.prototype.mustBeInteger = function (message, location) {

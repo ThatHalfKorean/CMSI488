@@ -31,7 +31,7 @@ var UnaryExpression = require('./entities/unaryexpression')
 var IncrementStatment = require('./entities/incrementstatement')
 
 var tokens
-var startingTokens = ['nom', 'buul', 'werd', 'dile', 'fer', 'tri', 'ID', 'pront', 'herez', 'thang']
+var startingTokens = ['nom', 'buul', 'eef', 'werd', 'dile', 'fer', 'tri', 'ID', 'pront', 'herez', 'thang']
 
 module.exports = function (scannerOutput) {
   tokens = scannerOutput
@@ -170,7 +170,7 @@ function parseForStatement() {
   return new ForStatement(conditions, body)
 }
 
-// Also needs work.
+// Not working correctly
 function parseIfStatement() {
   match('eef')
   
@@ -194,7 +194,7 @@ function parseIfStatement() {
   }
   return new IfStatement(ifCondition, ifBody, elseIfConditions, elseIfBodies, elseCondition, elseBody)
 }
-
+//Not working correctly
 function parseTryStatement() {
   match('tri')
   var tryBody = parseBlock()

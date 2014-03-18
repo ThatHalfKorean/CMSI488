@@ -2,6 +2,10 @@
 nom x derp
 nom y derp
 
+eef 1 < 2 dur
+  x = 1 derp
+urp derp
+
 dile 4 - x <= 10 && 0 == 1 dur
   nom x derp
   dile false && 1>2 && 1<3 || false!=(1>=100) dur
