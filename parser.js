@@ -118,7 +118,11 @@ function parseAssignmentStatement(target) {
 }
 
 function parseIncrementStatement(target) {
-  match('++') || match('--')
+  if (at('++')) {
+    match('++')
+  } else if (at('--')) {
+    match('--')
+  }
   return new IncrementStatement(target)
 }
 
