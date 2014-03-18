@@ -89,7 +89,7 @@ function idChecker() {
     return parseAssignmentStatement(target)
   } else if (at('(')){
     return parseCallStatement(target)
-  } else if (at('+','-')){
+  } else if (at(['++','--'])){
     return parseIncrementStatement(target)
   }
 }
@@ -185,8 +185,8 @@ function parseIfStatement() {
 	elseIfBodies.push(parseBlock())
   }
   
-  var elseCondition;
-  var elseBody;
+  var elseCondition
+  var elseBody
   if (at('elsh')) {
     match('elsh')
 	elseCondition = parseExpression()
