@@ -174,7 +174,7 @@ function parseIfStatement() {
 	bodies.push(parseBlock())
   }
   bodies.push(parseBlock())
-  if (at('elsh') {
+  if (at('elsh')) {
     match('elsh')
     bodies.push(parseBlock())
   }
