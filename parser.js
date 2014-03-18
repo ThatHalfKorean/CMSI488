@@ -189,7 +189,7 @@ function parseTryStatement() {
   var id = match('ID')
   match(')')
   var catchBody = parseBlock()
-  return new TryStatement(tryBody, catchBody)
+  return new TryStatement(tryBody, id, catchBody)
 }
 
 // Expressions appear to be fine.
