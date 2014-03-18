@@ -129,7 +129,7 @@ function parseCallStatement(target) {
 function parseReturnStatement() {
   match('herez')
   var expression = parseExpression()
-  return new CallStatement(expression)
+  return new ReturnStatement(expression)
 }
 
 function parseWriteStatement() {
