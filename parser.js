@@ -88,6 +88,8 @@ function idChecker() {
     return parseAssignmentStatement(target)
   } else if (at('(')){
     return parseCallStatement(target)
+  } else if (at('+','-')){
+    return parseIncrementStatement(target)
   }
 }
 
@@ -106,6 +108,22 @@ function parseAssignmentStatement(target) {
   match('=')
   var source = parseExpression()
   return new AssignmentStatement(target, source)
+}
+
+function parseIncrementStatement(target) {
+  match('++','--')
+  return new IncrementStatement(target, source)
+}
+
+function parseCallStatement(target) {
+  match('(')
+  var expressions = []
+  expressions.push(parseExpression())
+  while (at(',')) {
+    match()
+    expressions.push(parseExpression())
+  }
+  return new CallStatement(expressions)
 }
 
 function parseWriteStatement() {
@@ -130,12 +148,12 @@ function parseWhileStatement() {
 function parseForStatement() {
   match('fer')
   var conditions = []
+  conditions.push(parseVariableDeclaration())
+  match('derp')
   conditions.push(parseExpression())
-  while (at('derp')) {
-    match()
-    conditions.push(parseExpression())
-  }
-  return new ForStatement(condition, body)
+  match('derp')
+  conditions.push(
+  return new ForStatement(conditions, body)
 }
 
 // Also needs work.
@@ -143,7 +161,7 @@ function parseIfStatement() {
   match('eef')
   var condition = parseExpression()
   var body = parseBlock()
-  return new ForStatement(condition, body)
+  return new IfStatement(condition, body)
 }
 
 function parseTryStatement() {
