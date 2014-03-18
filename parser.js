@@ -96,7 +96,13 @@ function idChecker() {
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
 function parseVariableDeclaration() {
-  var type = match('nom') || match('werd') || match('buul')
+  if (at(['nom'])) {
+	var type = match('nom')
+  } else if (at(['werd'])) {
+	var type = match('werd')
+  } else if (at(['buul'])){
+	var type = match('buul')
+  }
   var id = match('ID')
   if (at('=')) {
     match('=')
