@@ -4,7 +4,7 @@ function AssignmentStatement(target, source) {
 }
 
 AssignmentStatement.prototype.toString = function () {
-  return '(= ' + this.target + ' ' + this.source + ')'
+  return '(=' + this.target + ' ' + this.source + ')'
 }
 
 AssignmentStatement.prototype.analyze = function (context) {

@@ -3,7 +3,7 @@ function WriteStatement(expressions) {
 }
 
 WriteStatement.prototype.toString = function () {
-  return '(Write ' + this.expressions.join(' ') + ')'
+  return '(Pront ' + this.expressions.join(' ') + ')'
 }
 
 WriteStatement.prototype.analyze = function (context) {

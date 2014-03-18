@@ -52,4 +52,4 @@ Program.prototype.showSemanticGraph = function () {
   dump(this, 0)
 }
 
-module.exports = Program
+module.exports = Script
