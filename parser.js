@@ -177,6 +177,9 @@ function parseTryStatement() {
   match('tri')
   var tryBody = parseBlock()
   match('ketch')
+  match('(')
+  var id = match('ID')
+  match(')')
   var catchBody = parseBlock()
   return new TryStatement(tryBody, catchBody)
 }
