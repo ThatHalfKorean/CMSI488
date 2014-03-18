@@ -23,10 +23,9 @@ describe('The parser', function () {
     'detected bad expressions in assignments': 'bad-expr-in-assignment',
     'detects a missing loop keyword': 'missing-loop',
     'detects a missing end keyword': 'missing-end',
-    'detects missing commas in read statements': 'no-comma-in-read',
     'detects missing commas in write statements': 'no-comma-in-write',
     'detects unbalanced parentheses': 'unbalanced-parens',
-    'detects a missing semicolon after a variable declaration': 'no-semicolon',
+    'detects a missing semicolon after a variable declaration': 'no-derp',
     'detects multiple relational operators without parentheses': 'multiple-relationals'
   };
 
