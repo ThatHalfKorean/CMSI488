@@ -96,7 +96,7 @@ function idChecker() {
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
 function parseVariableDeclaration() {
-  var type = match('nom'||'buul'||'werd')
+  var type = match('nom') || match('werd') || match('buul')
   var id = match('ID')
   if (at('=')) {
     match('=')
@@ -112,7 +112,7 @@ function parseAssignmentStatement(target) {
 }
 
 function parseIncrementStatement(target) {
-  match('++','--')
+  match('++') || match('--')
   return new IncrementStatement(target)
 }
 
