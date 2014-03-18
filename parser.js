@@ -165,20 +165,26 @@ function parseForStatement() {
 // Also needs work.
 function parseIfStatement() {
   match('eef')
-  var conditions = []
-  conditions.push(parseExpression())
-  var bodies = []
+  
+  ifCondition = parseExpression()
+  ifBody = parseBlock()
+  
+  var elseIfConditions = []
+  var elseIfBodies = []
   while (at('elsheef')) {
     match()
-	conditions.push(parseExpression())
-	bodies.push(parseBlock())
+	elseIfConditions.push(parseExpression())
+	elseIfBodies.push(parseBlock())
   }
-  bodies.push(parseBlock())
+  
+  var elseCondition;
+  var elseBody;
   if (at('elsh')) {
     match('elsh')
-    bodies.push(parseBlock())
+	elseCondition = parseExpression()
+    elseBody = parseBlock()
   }
-  return new IfStatement(conditions, bodies)
+  return new IfStatement(ifCondition, ifBody, elseIfConditions, elseIfBodies, elseCondition, elseBody)
 }
 
 function parseTryStatement() {
