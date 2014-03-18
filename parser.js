@@ -28,6 +28,7 @@ var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
 var VariableExpression = require('./entities/variableexpression')
+var IncrementStatment = require('./entities/incrementstatement')
 
 var tokens
 var startingTokens = ['nom', 'buul', 'werd', 'dile', 'fer', 'tri', 'ID', 'pront', 'herez', 'thang']
@@ -112,7 +113,7 @@ function parseAssignmentStatement(target) {
 
 function parseIncrementStatement(target) {
   match('++','--')
-  return new IncrementStatement(target, source)
+  return new IncrementStatement(target)
 }
 
 function parseCallStatement(target) {
@@ -158,7 +159,7 @@ function parseForStatement() {
   match('derp')
   conditions.push(parseExpression())
   match('derp')
-  conditions.push(
+  conditions.push(parseIncrementStatement())
   return new ForStatement(conditions, body)
 }
 

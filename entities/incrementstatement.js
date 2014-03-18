@@ -1,10 +1,10 @@
-function CallStatement(target, expressions) {
+function IncrementStatement(target, expressions) {
   this.target = target
   this.expressions = expressions
 }
 
 CallStatement.prototype.toString = function () {
-  return '( Call' +this.target.lexeme +' '+ this.expressions.join(' ') + ')'
+  return '( Increment' + this.target.lexeme + ')'
 }
 
 // CallStatement.prototype.analyze = function (context) {
@@ -14,4 +14,4 @@ CallStatement.prototype.toString = function () {
   // })
 // }
 
-module.exports = CallStatement
+module.exports = IncrementStatement
