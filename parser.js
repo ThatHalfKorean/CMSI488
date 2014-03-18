@@ -123,7 +123,7 @@ function parseCallStatement(target) {
     match()
     expressions.push(parseExpression())
   }
-  return new CallStatement(expressions)
+  return new CallStatement(target, expressions)
 }
 
 function parseReturnStatement() {
