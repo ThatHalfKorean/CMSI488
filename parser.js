@@ -27,7 +27,7 @@ var StringLiteral = require('./entities/stringliteral')
 var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
-//var VariableExpression = require('./entities/variableexpression')
+var VariableExpression = require('./entities/variableexpression')
 var IncrementStatement = require('./entities/incrementstatement')
 
 var tokens
@@ -91,6 +91,8 @@ function idChecker() {
     return parseCallStatement(target)
   } else if (at(['++','--'])){
     return parseIncrementStatement(target)
+  } else if (at(['[','.','('])){
+    return parseVariableExpression(target)
   }
 }
 
@@ -124,6 +126,31 @@ function parseIncrementStatement(target) {
     match('--')
   }
   return new IncrementStatement(target)
+}
+
+function parseVariableExpression(target) {
+  var expressions = []
+  var additionalIDs = []
+  var args = []
+  do {
+    if (at('[')) {
+      match('[')
+	  expressions.push(parseExpression())
+	  match(']')
+    } else if (at('.')) {
+      match('.')
+	  additionalIDs.push(match('ID'))
+    } else if (at('(')) {
+	  match('(')
+	  args.push(parseExpression())
+	  while (at(',')) {
+		match()
+		args.push(parseExpression())
+	  }
+	  match(')')
+	}
+  } while (at(['[','.','(']))
+  return new VariableExpression(target)
 }
 
 function parseCallStatement(target) {
