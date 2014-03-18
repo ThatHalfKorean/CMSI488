@@ -11,8 +11,8 @@ Type.prototype.toString = function () {
   return this.name
 }
 
-exports.BOOL = Type.BOOL = new Type('bool')
-exports.INT = Type.INT = new Type('int')
+exports.BUUL = Type.BUUL = new Type('buul')
+exports.NOM = Type.NOM = new Type('nom')
 exports.forName = function (name) {return cache[name]}
 
 Type.prototype.mustBeInteger = function (message, location) {

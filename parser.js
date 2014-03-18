@@ -108,7 +108,7 @@ function parseVariableDeclaration() {
     match('=')
     parseExpression()
   }
-  return new VariableDeclaration(type, id)
+  return new VariableDeclaration(id, type)
 }
 
 function parseAssignmentStatement(target) {
@@ -130,6 +130,7 @@ function parseCallStatement(target) {
     match()
     expressions.push(parseExpression())
   }
+  match(')')
   return new CallStatement(target, expressions)
 }
 
