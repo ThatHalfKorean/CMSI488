@@ -97,7 +97,7 @@ function parseVariableDeclaration() {
   var id = match('ID')
   if (at('=')) {
     match('=')
-    //parseExpression()
+    parseExpression()
   }
   return new VariableDeclaration(type, id)
 }
@@ -129,8 +129,12 @@ function parseWhileStatement() {
 // Needs work.
 function parseForStatement() {
   match('fer')
-  var condition = parseExpression()
-  var body = parseBlock()
+  var conditions = []
+  conditions.push(parseExpression())
+  while (at('derp')) {
+    match()
+    conditions.push(parseExpression())
+  }
   return new ForStatement(condition, body)
 }
 
@@ -142,13 +146,12 @@ function parseIfStatement() {
   return new ForStatement(condition, body)
 }
 
-// Rename body/body2
 function parseTryStatement() {
   match('tri')
-  var body = parseBlock()
+  var tryBody = parseBlock()
   match('ketch')
-  var body2 = parseBlock()
-  return new TryStatement(body, body2)
+  var catchBody = parseBlock()
+  return new TryStatement(tryBody, catchBody)
 }
 
 // Expressions appear to be fine.
