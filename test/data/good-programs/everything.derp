@@ -3,8 +3,13 @@ nom x derp
 nom y derp
 
 eef 1 < 2 dur
-  x = 1 derp
+  x-- derp ~o< why is this undefined?
 urp derp
+
+~o< elsheef doesn't work
+~o< neither does elsh
+
+~o< tri ketch does not work either
 
 dile 4 - x <= 10 && 0 == 1 dur
   nom x derp

@@ -28,10 +28,10 @@ var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
 //var VariableExpression = require('./entities/variableexpression')
-var IncrementStatment = require('./entities/incrementstatement')
+var IncrementStatement = require('./entities/incrementstatement')
 
 var tokens
-var startingTokens = ['nom', 'buul', 'eef', 'werd', 'dile', 'fer', 'tri', 'ID', 'pront', 'herez', 'thang']
+var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'tri', 'ketch', 'ID', 'pront', 'herez', 'thang']
 
 module.exports = function (scannerOutput) {
   tokens = scannerOutput
@@ -184,7 +184,7 @@ function parseIfStatement() {
   var elseIfConditions = []
   var elseIfBodies = []
   while (at('elsheef')) {
-    match()
+    match('elsheef')
 	elseIfConditions.push(parseExpression())
 	elseIfBodies.push(parseBlock())
   }

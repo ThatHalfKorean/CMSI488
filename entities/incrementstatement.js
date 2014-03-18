@@ -1,10 +1,9 @@
-function IncrementStatement(target, expressions) {
+function IncrementStatement(target) {
   this.target = target
-  this.expressions = expressions
 }
 
 IncrementStatement.prototype.toString = function () {
-  return '( Increment' + this.target.lexeme + ')'
+  return '( Increment ' + this.target + ')'
 }
 
 // CallStatement.prototype.analyze = function (context) {
