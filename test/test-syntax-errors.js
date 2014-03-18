@@ -5,7 +5,7 @@ var error = require('../error')
 
 function checkForParseErrors(check, baseFilename) {
   it(check, function (done) {
-    scan('test/data/syntax-errors/' + baseFilename + '.iki', function (tokens) {
+    scan('test/data/syntax-errors/' + baseFilename + '.derp', function (tokens) {
       var priorErrorCount = error.count
       parse(tokens);
       (error.count-priorErrorCount).should.be.above(0)
