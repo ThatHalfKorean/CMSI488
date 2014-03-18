@@ -46,7 +46,7 @@ function parseScript() {
     statements.push(parseStatement())
     match('derp')
   } while (at(startingTokens))
-  return new Block(statements)
+  return new Script(statements)
 }
 
 function parseBlock() {
