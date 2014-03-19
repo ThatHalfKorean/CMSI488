@@ -78,13 +78,13 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           Params         ::= '('Type Id (',' Type Id)* ')'  
                     
-          AssignmentStmt ::= Id VarExp '='  Exp
+          AssignmentStmt ::= Id VarExp '='  Exp 'derp'
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
           WhileStmt      ::= 'dile'  Exp  Block
           
-          CallStmt       ::= Id  VarExp
+          CallStmt       ::= Id  VarExp 'derp'
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
