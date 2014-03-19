@@ -78,7 +78,7 @@ Granted, this function will not return a neat value rounded to two decimal point
                           |   Id
                           |   Type  '[' ']'
                     
-          AssignmentStmt ::= VarExp '='  Exp
+          AssignmentStmt ::= Id VarExp '='  Exp
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
@@ -103,7 +103,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           Exp4           ::=  UnaryOp? Exp5
           Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | VarExp
           
-          VarExp         ::= Id ( '[' Exp ']' | '.' Id | Args )*
+          VarExp         ::= ( '[' Exp ']' | '.' Id | Args )*
           
           ArrayExp       ::= '[' Exp | (Exp ',')+ Exp | '' ']'
           
