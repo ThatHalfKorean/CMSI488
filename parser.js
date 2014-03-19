@@ -224,17 +224,6 @@ function parseIfStatement() {
   }
   return new IfStatement(ifCondition, ifBody, elseIfConditions, elseIfBodies, elseCondition, elseBody)
 }
-//Not working correctly
-function parseTryStatement() {
-  match('tri')
-  var tryBody = parseBlock()
-  match('ketch')
-  match('(')
-  var id = match('ID')
-  match(')')
-  var catchBody = parseBlock()
-  return new TryStatement(tryBody, id, catchBody)
-}
 
 // Expressions appear to be fine.
 function parseExpression() {
