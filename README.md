@@ -86,7 +86,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           TryStmt        ::= 'tri'  Block  'ketch' '(' Id ')' Block
           
-          CallStmt       ::= Id  Args
+          CallStmt       ::= Id  VarExp
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
