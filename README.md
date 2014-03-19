@@ -55,7 +55,6 @@ Granted, this function will not return a neat value rounded to two decimal point
                           |   AssignmentStmt
                           |   IfStmt
                           |   WhileStmt
-                          |   TryStmt
                           |   CallStmt
                           |   ForStmt
                           |   ReturnStmt
