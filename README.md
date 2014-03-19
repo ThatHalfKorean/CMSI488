@@ -50,7 +50,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           Script         ::=  Stmt+
           
           Stmt           ::=  Declaration
-                          |   Increment  'derp'
+                          |   Increment  
                           |   WriteStmt
                           |   AssignmentStmt
                           |   IfStmt
@@ -70,7 +70,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           FunDec         ::= Type  Id  Params  Block
           
-          Increment      ::=  Id  ('++' | '--')
+          Increment      ::=  Id  ('++' | '--') 'derp'
           
           Type           ::=  'nom'
                           |   'buul'
