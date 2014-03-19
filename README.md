@@ -85,8 +85,6 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           WhileStmt      ::= 'dile'  Exp  Block
           
-          TryStmt        ::= 'tri'  Block  'ketch' '(' Id ')' Block
-          
           CallStmt       ::= id  VarExp
           
           ReturnStmt     ::= 'herez' Exp 'derp'
