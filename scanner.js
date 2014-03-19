@@ -59,7 +59,7 @@ function scan(line, linenumber, tokens) {
     } else if (/[A-Za-z]/.test(line[pos])) {
       while (/\w/.test(line[pos]) && pos < line.length) pos++
       var word = line.substring(start, pos)
-      if (/^(?:nom|buul|werd|dile|eef|tru|foos|derp|tri|ketch|elsheef|elsh|herez|fer|dur|urp|pront|thang)$/.test(word)) {
+      if (/^(?:nom|buul|werd|dile|eef|tru|foos|derp|elsheef|elsh|herez|fer|dur|urp|pront|thang)$/.test(word)) {
         emit(word)
       } else {
         emit('ID', word)
