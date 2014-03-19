@@ -78,7 +78,7 @@ Granted, this function will not return a neat value rounded to two decimal point
                           |   Id
                           |   Type  '[' ']'
                     
-          AssignmentStmt ::= Id '='  Exp
+          AssignmentStmt ::= VarExp '='  Exp
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
