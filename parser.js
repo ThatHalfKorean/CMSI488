@@ -20,7 +20,6 @@ var IfStatement = require('./entities/ifstatement') //gotta figure out the entit
 var WhileStatement = require('./entities/whilestatement')
 var CallStatement = require('./entities/callstatement')
 var ForStatement = require('./entities/forstatement')
-var TryStatement = require('./entities/trystatement')
 var NumericLiteral = require('./entities/numericliteral')
 var BooleanLiteral = require('./entities/booleanliteral')
 var StringLiteral = require('./entities/stringliteral')
@@ -31,7 +30,7 @@ var VariableExpression = require('./entities/variableexpression')
 var IncrementStatement = require('./entities/incrementstatement')
 
 var tokens
-var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'tri', 'ketch', 'ID', 'pront', 'herez', 'thang']
+var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'ID', 'pront', 'herez', 'thang']
 
 module.exports = function (scannerOutput) {
   tokens = scannerOutput
