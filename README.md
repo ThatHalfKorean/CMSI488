@@ -100,7 +100,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           Exp2           ::=  Exp3 (AddOp Exp3)?
           Exp3           ::=  Exp4 (MultOp Exp4)*
           Exp4           ::=  UnaryOp? Exp5
-          Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | VarExp
+          Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | Id VarExp
           
           VarExp         ::= ( '[' Exp ']' | '.' Id | Args )*
           
