@@ -64,28 +64,28 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           Declaration    ::= VarDec | TypeDec | FunDec
           
-          VarDec         ::= Type  id  ('='  Exp)?  'derp'
+          VarDec         ::= Type  Id  ('='  Exp)?  'derp'
           
-          TypeDec        ::= 'thang'  id  'dur' (Type  Id  ':' Exp derp)+ 'urp'
+          TypeDec        ::= 'thang'  Id  'dur' (Type  Id  ':' Exp derp)+ 'urp'
           
-          FunDec         ::= Type  id  Params  Block
+          FunDec         ::= Type  Id  Params  Block
           
-          Increment      ::=  id  ('++' | '--') 'derp'
+          Increment      ::=  Id  ('++' | '--') 'derp'
           
           Type           ::=  'nom'
                           |   'buul'
                           |   'werd'
                           |   Type  '[' ']'
           
-          Params         ::= '(' id (',' id)* ')'  
+          Params         ::= '('Type Id (',' Type Id)* ')'  
                     
-          AssignmentStmt ::= id VarExp '='  Exp
+          AssignmentStmt ::= Id VarExp '='  Exp
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
           WhileStmt      ::= 'dile'  Exp  Block
           
-          CallStmt       ::= id  VarExp
+          CallStmt       ::= Id  VarExp
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
