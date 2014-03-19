@@ -84,7 +84,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           WhileStmt      ::= 'dile'  Exp  Block
           
-          CallStmt       ::= Id  VarExp 'derp'
+          CallStmt       ::= Id  '('Args')' 'derp'
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
