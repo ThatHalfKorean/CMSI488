@@ -4,7 +4,7 @@ nom y derp
 
 eef 1 < 2 dur
   x-- derp ~o< why is this undefined?
-urp derp
+urp
 
 ~o< elsheef doesn't work
 ~o< neither does elsh
@@ -17,10 +17,10 @@ dile 4 - x <= 10 && 0 == 1 dur
     nom x derp
     x = x==x && !(y > 3) || x derp
     pront y * (3 + y) derp
-  urp derp
+  urp
   ~o< I attack when you least expect it. HAhah!!
   x = 1 + 2 - 3 derp
-urp derp
+urp
 
 nom test derp ~o< Nurr-hurr strikes again
 test = foos && 8 != 2 || test && !test derp

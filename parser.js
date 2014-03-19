@@ -43,7 +43,6 @@ function parseScript() {
   var statements = []
   do {
     statements.push(parseStatement())
-    match('derp')
   } while (at(startingTokens))
   return new Script(statements)
 }
@@ -109,12 +108,14 @@ function parseVariableDeclaration() {
     match('=')
     parseExpression()
   }
+  match('derp')
   return new VariableDeclaration(id, type)
 }
 
 function parseAssignmentStatement(target) {
   match('=')
   var source = parseExpression()
+  match('derp')
   return new AssignmentStatement(target, source)
 }
 
@@ -124,6 +125,7 @@ function parseIncrementStatement(target) {
   } else if (at('--')) {
     match('--')
   }
+  match('derp')
   return new IncrementStatement(target)
 }
 
@@ -161,12 +163,14 @@ function parseCallStatement(target) {
     expressions.push(parseExpression())
   }
   match(')')
+  match('derp')
   return new CallStatement(target, expressions)
 }
 
 function parseReturnStatement() {
   match('herez')
   var expression = parseExpression()
+  match('derp')
   return new ReturnStatement(expression)
 }
 
@@ -178,6 +182,7 @@ function parseWriteStatement() {
     match()
     expressions.push(parseExpression())
   }
+  match('derp')
   return new WriteStatement(expressions)
 }
 
