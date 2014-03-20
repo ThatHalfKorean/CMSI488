@@ -103,9 +103,6 @@ function parseVariableDeclaration() {
   } else if (at(['buul'])){
 	var type = match('buul')
   }
-  if (at('[')){
-    parseArrayExpression(type)
-  }
   var id = match('ID')
   if (at('=')) {
     match('=')
@@ -114,11 +111,7 @@ function parseVariableDeclaration() {
   match('derp')
   return new VariableDeclaration(id, type)
 }
-function arrayObjectDeclaration(type){
-  match(']')
-  match('=')
-  match('[')
-}
+
 function parseObjectDeclaration() {
   var type = match('thang')
   var id = match('ID')
