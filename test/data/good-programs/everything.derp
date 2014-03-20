@@ -13,7 +13,11 @@ urp
 
 thang reptile = dur werd species:"turtle" derp nom age:10000 derp urp
 
+pront reptile.species derp
+
 werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
+
+pront crocks[2] derp
 
 dile 4 - x <= 10 && 0 == 1 dur
   nom x derp
