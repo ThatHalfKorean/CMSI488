@@ -28,6 +28,7 @@ var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
 var VariableExpression = require('./entities/variableexpression')
 var IncrementStatement = require('./entities/incrementstatement')
+var ObjectDeclaration = require('./entities/objectdeclaration')
 
 var tokens
 var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'ID', 'pront', 'herez', 'thang']
@@ -62,7 +63,7 @@ function parseStatement() {
   if (at(['nom','buul','werd'])) {
     return parseVariableDeclaration()
   } else if (at('thang')) {
-    return parseTypeDeclaration()
+    return parseObjectDeclaration()
   } else if (at('ID')) {
     return idChecker()
   } else if (at('pront')) {
@@ -113,7 +114,7 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(id, type)
 }
 
-function parseTypeDeclaration() {
+function parseObjectDeclaration() {
   var type = match('thang')
   var id = match('ID')
   match('dur')
@@ -134,7 +135,7 @@ function parseTypeDeclaration() {
 	match('derp')
   } while (at(['nom','werd','buul']))
   match('urp')
-  return new TypeDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions)
+  return new ObjectDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions)
 }
 
 function parseAssignmentStatement(target) {
