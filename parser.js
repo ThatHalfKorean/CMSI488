@@ -102,7 +102,13 @@ function parseVariableDeclaration() {
 	var type = match('werd')
   } else if (at(['buul'])){
 	var type = match('buul')
-  }
+  } else if (at(['nom[]'])) {
+	var type = match('nom[]')
+  } else if (at(['werd[]'])) {
+	var type = match('werd[]')
+  } else if (at(['buul[]'])){
+	var type = match('buul[]')
+  } 
   var id = match('ID')
   if (at('=')) {
     match('=')
