@@ -112,6 +112,30 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(id, type)
 }
 
+function parseTypeDeclaration() {
+  var type = match('thang')
+  var id = match('ID')
+  match('dur')
+  var propertyTypes = []
+  var propertyIDs = []
+  var propertyExpressions = []
+  do {
+	if (at(['nom'])) {
+	  propertyTypes.push(match('nom'))
+	} else if (at(['werd'])) {
+	  propertyTypes.push(match('werd'))
+	} else if (at(['buul'])){
+	  propertyTypes.push(match('buul'))
+	}
+	propertyIDs.push(match('ID'))
+	match(':')
+	propertyExpressions.push(parseExpression())
+	match('derp')
+  } while (at(['[','.','(']))
+  match('urp')
+  return new TypeDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions)
+}
+
 function parseAssignmentStatement(target) {
   match('=')
   var source = parseExpression()
