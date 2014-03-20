@@ -11,7 +11,9 @@ urp
 
 ~o< tri ketch does not work either
 
-thang reptile = dur werd species:"turtle" derp nom age:10000 derp urp
+thang reptile = dur 
+werd species:"turtle" derp 
+nom age:10000 derp urp
 
 pront reptile.species derp
 
