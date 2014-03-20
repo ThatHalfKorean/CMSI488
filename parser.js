@@ -60,7 +60,7 @@ function parseBlock() {
 
 // Have to figure out how to differentiate statements that start with ID.
 function parseStatement() {
-  if (at(['nom','buul','werd'])) {
+  if (at(['nom','buul','werd','nom[]','buul[]','werd[]'])) {
     return parseVariableDeclaration()
   } else if (at('thang')) {
     return parseObjectDeclaration()
@@ -96,19 +96,19 @@ function idChecker() {
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
 function parseVariableDeclaration() {
-  if (at(['nom'])) {
-	var type = match('nom')
-  } else if (at(['werd'])) {
-	var type = match('werd')
-  } else if (at(['buul'])){
-	var type = match('buul')
-  } else if (at(['nom[]'])) {
+  if (at(['nom[]'])) {
 	var type = match('nom[]')
   } else if (at(['werd[]'])) {
 	var type = match('werd[]')
   } else if (at(['buul[]'])){
 	var type = match('buul[]')
-  } 
+  } else if (at(['nom'])) {
+	var type = match('nom')
+  } else if (at(['werd'])) {
+	var type = match('werd')
+  } else if (at(['buul'])){
+	var type = match('buul')
+  }
   var id = match('ID')
   if (at('=')) {
     match('=')
