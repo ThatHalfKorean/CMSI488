@@ -72,8 +72,6 @@ function parseStatement() {
     return parseIfStatement()
   } else if (at('dile')) {
     return parseWhileStatement()
-  } else if (at('tri')) {
-    return parseTryStatement()
   } else if (at('fer')) {
     return parseForStatement()
   } else if (at('herez')) {
@@ -157,28 +155,27 @@ function parseIncrementStatement(target) {
 }
 
 function parseVariableExpression(target) {
-  var expressions = []
-  var additionalIDs = []
-  var args = []
+  var varExp = []
+  varExp.push(target)
   do {
     if (at('[')) {
       match('[')
-	  expressions.push(parseExpression())
+	  varExp.push(parseExpression())
 	  match(']')
     } else if (at('.')) {
       match('.')
-	  additionalIDs.push(match('ID'))
+	  varExp.push(match('ID'))
     } else if (at('(')) {
 	  match('(')
-	  args.push(parseExpression())
+	  varExp.push(parseExpression())
 	  while (at(',')) {
 		match()
-		args.push(parseExpression())
+		varExp.push(parseExpression())
 	  }
 	  match(')')
 	}
   } while (at(['[','.','(']))
-  return new VariableExpression(target)
+  return new VariableExpression(varExp)
 }
 
 function parseCallStatement(target) {
