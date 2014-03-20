@@ -62,6 +62,8 @@ function parseBlock() {
 function parseStatement() {
   if (at(['nom','buul','werd'])) {
     return parseVariableDeclaration()
+  } else if (at('thang')) {
+    return parseTypeDeclaration()
   } else if (at('ID')) {
     return idChecker()
   } else if (at('pront')) {
@@ -131,7 +133,7 @@ function parseTypeDeclaration() {
 	match(':')
 	propertyExpressions.push(parseExpression())
 	match('derp')
-  } while (at(['[','.','(']))
+  } while (at(['nom','werd','buul']))
   match('urp')
   return new TypeDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions)
 }
