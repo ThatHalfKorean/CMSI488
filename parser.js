@@ -117,6 +117,7 @@ function parseVariableDeclaration() {
 function parseObjectDeclaration() {
   var type = match('thang')
   var id = match('ID')
+  match('=')
   match('dur')
   var propertyTypes = []
   var propertyIDs = []
