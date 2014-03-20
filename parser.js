@@ -52,7 +52,6 @@ function parseBlock() {
   var statements = []
   do {
     statements.push(parseStatement())
-    match('derp')
   } while (at(startingTokens))
   match('urp')
   return new Block(statements)
