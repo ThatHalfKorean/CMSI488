@@ -19,6 +19,18 @@ werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
 
 pront crocks[2] derp
 
+nom feeshMahth (nom feeshNow, nom feeshAte) dur
+	nom feeshLater = feeshAte - feeshAte derp
+	eef feeshLater == 0 dur
+		pront ":(" derp
+	urp
+	herez feeshLater derp	
+urp
+
+pront feeshMahth(7,7) derp
+
+pront feeshMahth(72,3) derp
+
 dile 4 - x <= 10 && 0 == 1 dur
   nom x derp
   dile false && 1>2 && 1<3 || false!=(1>=100) dur
