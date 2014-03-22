@@ -65,27 +65,23 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           VarDec         ::= Type  Id  ('='  Exp)?  'derp'
           
-          TypeDec        ::= 'dur' (Type  Id  ':' Exp 'derp')+ 'urp'
+          ObjDec        ::= 'dur' (Type  Id  ':' Exp 'derp')+ 'urp'
           
           FunDec         ::= Type  Id  Params  Block
           
-          Increment      ::=  Id  ('++' | '--') 'derp'
+          Increment      ::= VarExp  ('++' | '--') 'derp'
           
-          Type           ::=  'nom'
-                          |   'buul'
-                          |   'werd'
-                          |   Type  '[' ']'
-                          |   'thang'
-          
-          Params         ::= '('Type Id (',' Type Id)* ')'  
+          Type           ::= ( 'nom' | 'buul' | 'werd' | 'thang' )( [] )*
+
+          Params         ::= '(' Type Id (',' Type Id)* ')'  
                     
-          AssignmentStmt ::= Id VarExp '='  Exp 'derp'
+          AssignmentStmt ::= VarExp '='  Exp 'derp'
           
           IfStmt         ::= 'eef'  Exp  Block  ('elsheef' Exp Block)*  ('elsh'  Block)?
           
           WhileStmt      ::= 'dile'  Exp  Block
           
-          CallStmt       ::= Id  '('Args')' 'derp'
+          CallStmt       ::= VarExp  '('Args')' 'derp'
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
@@ -100,9 +96,9 @@ Granted, this function will not return a neat value rounded to two decimal point
           Exp2           ::=  Exp3 (AddOp Exp3)?
           Exp3           ::=  Exp4 (MultOp Exp4)*
           Exp4           ::=  UnaryOp? Exp5
-          Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | Id VarExp | typeDec
+          Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | Id VarExp | objDec | '(' Exp ')' | ArrayExp
           
-          VarExp         ::= ( '[' Exp ']' | '.' Id | Args )*
+          VarExp         ::= Id ( '[' Exp? ']' | '.' Id | Args )*
           
           ArrayExp       ::= '[' Exp | (Exp ',')+ Exp | '' ']'
           
