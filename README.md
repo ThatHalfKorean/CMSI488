@@ -98,7 +98,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           Exp4           ::=  UnaryOp? Exp5
           Exp5           ::=  NumLit | StringLit | 'tru' | 'foos' | Id VarExp | objDec | '(' Exp ')' | ArrayExp
           
-          VarExp         ::= Id ( '[' Exp? ']' | '.' Id | Args )*
+          VarExp         ::= Id ( '[' Exp ']' | '.' Id | Args )*
           
           ArrayExp       ::= '[' Exp | (Exp ',')+ Exp | '' ']'
           
