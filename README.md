@@ -61,7 +61,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           Block          ::=  'dur'  Stmt+  'urp'
           
-          Declaration    ::= VarDec | TypeDec | FunDec
+          Declaration    ::= VarDec | ObjDec | FunDec
           
           VarDec         ::= Type  Id  ('='  Exp)?  'derp'
           
