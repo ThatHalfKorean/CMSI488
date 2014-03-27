@@ -7,10 +7,10 @@ function IfStatement(conditions, bodies, elseBody) {
 
 IfStatement.prototype.toString = function () {
   var printedTree = ' (Eff ';
-  for(var i = 0; i < conditions.length; i++){
+  for(var i = 0; i < this.conditions.length; i++){
     printedTree = printedTree +'( ( ' + this.conditions[i] + ' )' + '( ' + this.bodies[i] + ' ) )'
   }
-  if(elseBody){
+  if(this.elseBody){
     printedTree = printedTree + ' Elsh (' + this.elseBody + ')'
   }
   printedTree = printedTree + ' )'

@@ -11,27 +11,27 @@ urp
 
 ~o< tri ketch does not work either
 
-thang reptile = dur 
-werd species:"turtle" derp 
-nom age:10000 derp urp
+~o< thang reptile = dur 
+~o< werd species:"turtle" derp 
+~o< nom age:10000 derp urp
 
-pront "reptile" derp
+~o< pront "reptile" derp
 
-werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
+~o< werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
 
-pront crocks[2] derp
+~o< pront crocks[2] derp
 
-nom feeshMahth (nom feeshNow, nom feeshAte) dur
-	nom feeshLater = feeshAte - feeshAte derp
-	eef feeshLater == 0 dur
-		pront ":(" derp
-	urp
-	herez feeshLater derp	
-urp
+~o< nom feeshMahth (nom feeshNow, nom feeshAte) dur
+	~o< nom feeshLater = feeshAte - feeshAte derp
+	~o< eef feeshLater == 0 dur
+		~o< pront ":(" derp
+	~o< urp
+	~o< herez feeshLater derp	
+~o< urp
 
-pront feeshMahth(7,7) derp
+~o< pront feeshMahth(7,7) derp
 
-pront feeshMahth(72,3) derp
+~o< pront feeshMahth(72,3) derp
 
 dile 4 - x <= 10 && 0 == 1 dur
   nom x derp
