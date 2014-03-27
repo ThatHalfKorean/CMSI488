@@ -232,26 +232,23 @@ function parseForStatement() {
 // Not working correctly
 function parseIfStatement() {
   match('eef')
+  var conditions = []
+  var bodies = []
+  var elseBody = null
+  conditions.push(parseExpression())
+  bodies.push(parseBlock())
   
-  ifCondition = parseExpression()
-  ifBody = parseBlock()
-  
-  var elseIfConditions = []
-  var elseIfBodies = []
   while (at('elsheef')) {
     match('elsheef')
-	elseIfConditions.push(parseExpression())
-	elseIfBodies.push(parseBlock())
+	conditions.push(parseExpression())
+	bodies.push(parseBlock())
   }
-  
-  var elseCondition
-  var elseBody
+ 
   if (at('elsh')) {
     match('elsh')
-	elseCondition = parseExpression()
     elseBody = parseBlock()
   }
-  return new IfStatement(ifCondition, ifBody, elseIfConditions, elseIfBodies, elseCondition, elseBody)
+  return new IfStatement(conditions, bodies, elseBody)
 }
 
 // Expressions appear to be fine.
