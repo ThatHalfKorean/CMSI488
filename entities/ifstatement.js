@@ -2,10 +2,19 @@ function IfStatement(conditions, bodies, elseBody) {
   this.conditions = conditions
   this.bodies = bodies
   this.elseBody = elseBody
+  
 }
 
 IfStatement.prototype.toString = function () {
-  return '(Eef ' + this.conditions.join(', ') + ' ' + this.bodies.join(', ') + ' Elsh ' + this.elseBody +')'
+  var printedTree = ' (Eff ';
+  for(var i = 0; i < conditions.length; i++){
+    printedTree = printedTree +'( ( ' + this.conditions[i] + ' )' + '( ' + this.bodies[i] + ' ) )'
+  }
+  if(elseBody){
+    printedTree = printedTree + ' Elsh (' + this.elseBody + ')'
+  }
+  printedTree = printedTree + ' )'
+  return printedTree
 }
 
 // WhileStatement.prototype.analyze = function (context) {
