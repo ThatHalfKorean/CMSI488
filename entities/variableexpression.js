@@ -3,7 +3,7 @@ function VariableExpression(id) {
 }
 
 VariableExpression.prototype.toString = function () {
-  return '( VarExp' + this.id.join(', ') + ')'
+  return '( VarExp' + this.id+ ')'
 }
 
 module.exports = VariableExpression

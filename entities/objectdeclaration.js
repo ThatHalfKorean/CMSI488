@@ -1,11 +1,11 @@
 var Type = require('./type')
 
 function ObjectDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions) {
-  this.propertyIDs = propertyIDs
+  this.id = id
 }
 
 ObjectDeclaration.prototype.toString = function () {
-  return '(Object ' + this.propertyIDs.join(', ') + ')'
+  return '(Object ' + this.id + ')'
 }
 
 
