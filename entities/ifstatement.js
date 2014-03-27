@@ -1,14 +1,11 @@
-function IfStatement(ifCondition, ifBody, elseIfConditions, elseIfBodies, elseCondition, elseBody) {
-  this.ifCondition = ifCondition
-  this.ifBody = ifBody
-  this.elseIfConditions = elseIfConditions
-  this.elseIfBodies = elseIfBodies
-  this.elseCondition = elseCondition
+function IfStatement(conditions, bodies, elseBody) {
+  this.conditions = conditions
+  this.bodies = bodies
   this.elseBody = elseBody
 }
 
 IfStatement.prototype.toString = function () {
-  return '(Eef ' + this.ifCondition + ' ' + this.ifBody + ' ElshEef ' + this.elseIfConditions.join(' ') + ' ' + this.elseIfBodies.join(' ') + ' Elsh ' + this.elseCondition + ' ' + this.elseBody +')'
+  return '(Eef ' + this.conditions.join(', ') + ' ' + this.bodies.join(', ') + ' Elsh ' + this.elseBody +')'
 }
 
 // WhileStatement.prototype.analyze = function (context) {
