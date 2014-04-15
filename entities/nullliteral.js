@@ -1,15 +1,15 @@
-var Type = require('./type')
+//var Type = require('./type')
 
-function NullLiteral(name) {
-  this.name = name
+function NullLiteral(token) {
+  this.token = token
 }
 
 NullLiteral.prototype.toString = function () {
-  return this.name
+  return this.token.lexeme
 }
 
 NullLiteral.prototype.analyze = function (context) {
-  this.type = Type.NURR
+  //this.type = Type.NOM to do
 }
 
 module.exports = NullLiteral

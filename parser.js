@@ -93,7 +93,7 @@ function idChecker() {
   } else if (at(['++','--'])){
     return parseIncrementStatement(target)
   } else if (at(['[','.','('])){
-    return parseVariableExpression(target)
+    return parseVar(target)
   }
 }
 
@@ -320,6 +320,8 @@ function parseExp5() {
     return new BooleanLiteral.forName(match().lexeme)
   } else if (at('NUMLIT')) {
     return new NumericLiteral(match())
+  }else if (at('NULLLIT')) {
+    return new NullLiteral(match())
   } else if (at('STRLIT')) {
     return new StringLiteral(match())
   } else if (at('ID')) {
