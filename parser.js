@@ -27,7 +27,9 @@ var NullLiteral = require('./entities/nullliteral')
 var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
-var VariableExpression = require('./entities/variableexpression')
+var BasicVar = require('./entities/basicvar')
+var IndexVar = require('./entities/indexvar')
+var DottedVar = require('./entities/dottedvar')
 var IncrementStatement = require('./entities/incrementstatement')
 var ObjectDeclaration = require('./entities/objectdeclaration')
 
@@ -155,28 +157,38 @@ function parseIncrementStatement(target) {
   return new IncrementStatement(target)
 }
 
-function parseVariableExpression(target) {
-  var varExp = []
-  varExp.push(target)
-  do {
-    if (at('[')) {
-      match('[')
-	  varExp.push(parseExpression())
-	  match(']')
-    } else if (at('.')) {
-      match('.')
-	  varExp.push(match('ID'))
+function parseVar() {
+  function gather (base) {
+    if (at('.')) {
+      return parseDottedVar(base)
+    } else if (at('[')) {
+      return parseIndexVar(base)
     } else if (at('(')) {
-	  match('(')
-	  varExp.push(parseExpression())
-	  while (at(',')) {
-		match()
-		varExp.push(parseExpression())
-	  }
-	  match(')')
-	}
-  } while (at(['[','.','(']))
-  return new VariableExpression(varExp)
+      return parseCallStatement(base)
+    }
+  }
+
+  var result = parseBasicVar()
+  while (at(['[','.','('])) {
+    result = gather(result)
+  }
+  return result
+}
+
+function parseBasicVar () {
+  return new BasicVar(match('ID').lexeme)
+}
+
+function parseDottedVar (struct) {
+  match('.')
+  return new DottedVar(struct.name, match('ID').lexeme)
+}
+
+function parseIndexVar (array) {
+  match('[')
+  var indexVar = new IndexVar(array.name, parseExpression())
+  match(']')
+  return indexVar
 }
 
 function parseCallStatement(target) {
