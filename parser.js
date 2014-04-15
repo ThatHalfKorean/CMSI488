@@ -93,7 +93,7 @@ function idChecker() {
   } else if (at(['++','--'])){
     return parseIncrementStatement(target)
   } else if (at(['[','.','('])){
-    return parseVar(target)
+    return parseVar()
   }
 }
 
