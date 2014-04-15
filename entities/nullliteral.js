@@ -15,6 +15,4 @@ BooleanLiteral.prototype.analyze = function (context) {
   this.type = Type.NURR
 }
 
-exports.TRUE = new BooleanLiteral('tru')
-exports.FALSE = new BooleanLiteral('foos')
-exports.forName = function (name) {return cache[name]}
+module.exports = NullLiteral
