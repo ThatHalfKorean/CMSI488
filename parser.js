@@ -85,16 +85,24 @@ function parseStatement() {
 }
 
 function idChecker() {
-  var target = new VariableReference(match('ID'))
+  var name = parseVar()
   if (at('=')) {
-    return parseAssignmentStatement(target)
-  } else if (at('(')){
-    return parseCallStatement(target)
-  } else if (at(['++','--'])){
-    return parseIncrementStatement(target)
-  } else if (at(['[','.','('])){
-    return parseVar()
+    return parseAssignmentStatement(name)
+  } else if (at(['++','--'])) {
+    return parseIncrementStatement(name)
+  } else {
+    return name
   }
+  // var target = new VariableReference(match('ID'))
+  // if (at('=')) {
+  //   return parseAssignmentStatement(target)
+  // } else if (at('(')){
+  //   return parseCallStatement(target)
+  // } else if (at(['++','--'])){
+  //   return parseIncrementStatement(target)
+  // } else if (at(['[','.','('])){
+  //   return parseVar()
+  // }
 }
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
