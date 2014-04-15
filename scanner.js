@@ -45,7 +45,9 @@ function scan(line, linenumber, tokens) {
 
     // Comment
     if (line[pos] == '~' && line[pos+1] == 'o' && line[pos+2] == '<') break
-
+    
+	var nullTest = line.slice(pos, pos + 4),
+	    nullExample = /^(?:nurr)$/
     // Two-character tokens
     if (/==|!=|\+\+|\-\-|<=|>=|\|\||&&/.test(line.substring(pos, pos+2))) {
       emit(line.substring(pos, pos+2))
@@ -55,11 +57,15 @@ function scan(line, linenumber, tokens) {
     } else if (/[+\-*\/(),.:<>!=\[\]]/.test(line[pos])) {
       emit(line[pos++])
 
-    // Reserved words or identifiers
+   
+    }  else if (nullExample.test(nullTest)) {
+        emit('NULLLIT')
+		pos += 4
+     // Reserved words or identifiers
     } else if (/[A-Za-z]/.test(line[pos])) {
       while (/\w/.test(line[pos]) && pos < line.length) pos++
       var word = line.substring(start, pos)
-      if (/^(?:nom|buul|werd|dile|eef|tru|foos|derp|elsheef|elsh|herez|fer|dur|urp|pront|thang|nurr)$/.test(word)) {
+      if (/^(?:nom|buul|werd|dile|eef|tru|foos|derp|elsheef|elsh|herez|fer|dur|urp|pront)$/.test(word)) {
         emit(word)
       } else {
         emit('ID', word)
@@ -70,14 +76,8 @@ function scan(line, linenumber, tokens) {
             var s = [],
                 parenCheck = true,
                 emptyString = (line[pos+1] === '\"' || line[pos+1] === '\'')
-                //  Line continuation? Someday we might.
-            //  old regex, needed improvement + refactor
-            //  var stringRegex = /[A-Za-z0-9_,.;:\(\)\!\@\#\$\%\^\&\*\<\>\\\?\x20\'\"]/
-            //  implemented /.+/ instead
-            while (/.+/.test(line[++pos]) && pos < line.length && parenCheck) {
-                //  Checks for escape characters
-                //  Link below helped immensely:
-                //  http://mathiasbynens.be/notes/javascript-escapes    
+
+            while (/.+/.test(line[++pos]) && pos < line.length && parenCheck) { 
                 if (line[pos] === '\\') {
                     s = s.concat(line[pos])
                     if (oneCharEscapeChars.test(line.substring(pos+1, pos+2))) {
@@ -105,6 +105,7 @@ function scan(line, linenumber, tokens) {
                     s = s.concat(line[pos])
                 }
             }
+	//Num Lits		
     } else if (/\d/.test(line[pos])) {
       while (/\d/.test(line[pos])) pos++
       if(/\./.test(line[pos])){
@@ -112,7 +113,6 @@ function scan(line, linenumber, tokens) {
         while(/\d/.test(line[pos])) pos++
       }
       emit('NUMLIT', line.substring(start, pos))
-    
     } else {
       error('Illegal character: ' + line[pos], {line: linenumber, col: pos+1})
       pos++
