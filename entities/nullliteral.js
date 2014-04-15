@@ -1,6 +1,6 @@
 var Type = require('./type')
 
-function BooleanLiteral(name) {
+function NullLiteral(name) {
   this.name = name
 }
 
