@@ -2,7 +2,6 @@ var Type = require('./type')
 
 function BooleanLiteral(name) {
   this.name = name
-  cache[name] = this
 }
 
 NullLiteral.prototype.toString = function () {
