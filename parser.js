@@ -202,6 +202,7 @@ function parseIndexVar (array) {
 function parseCallStatement(target) {
   match('(')
   var expressions = []
+  if(!at(')'))
   expressions.push(parseExpression())
   while (at(',')) {
     match()
