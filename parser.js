@@ -106,6 +106,7 @@ function idChecker() {
 }
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
+//also should consider default value.
 function parseVariableDeclaration() {
   if (at(['nom'])) {
 	var type = match('nom')
@@ -120,9 +121,13 @@ function parseVariableDeclaration() {
     parseExpression()
   }
   match('derp')
+  //should be (id, type, initialValue)
   return new VariableDeclaration(id, type)
 }
 
+
+
+//needs to be fixed
 function parseObjectDeclaration() {
   var type = match('thang')
   var id = match('ID')
@@ -148,6 +153,7 @@ function parseObjectDeclaration() {
   return new ObjectDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions)
 }
 
+//probably should be tweaked..
 function parseAssignmentStatement(target) {
   match('=')
   var source = parseExpression()
