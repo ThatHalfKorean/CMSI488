@@ -4,7 +4,7 @@ function CallStatement(target, expressions) {
 }
 
 CallStatement.prototype.toString = function () {
-  return '( Call' +this.target.lexeme +' '+ this.expressions.join(' ') + ')'
+  return '( Call ' +this.target +' '+ this.expressions.join(' ') + ')'
 }
 
 // CallStatement.prototype.analyze = function (context) {

@@ -127,7 +127,7 @@ function parseVariableDeclaration() {
 
 
 
-//needs to be fixed
+//needs to be fixed.  What about arrays being passed in? should just push varDecs...
 function parseObjectDeclaration() {
   var type = match('thang')
   var id = match('ID')
@@ -205,7 +205,7 @@ function parseIndexVar (array) {
   return indexVar
 }
 
-function parseCallStatement(target) {
+function parseCallStatement(fn) {
   match('(')
   var expressions = []
   if(!at(')'))
@@ -215,9 +215,10 @@ function parseCallStatement(target) {
     expressions.push(parseExpression())
   }
   match(')')
-  match('derp')
-  return new CallStatement(target, expressions)
+  //match('derp')
+  return new CallStatement(fn.name, expressions)
 }
+//how to check for derps when needed...
 
 function parseReturnStatement() {
   match('herez')
