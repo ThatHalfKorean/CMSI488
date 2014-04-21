@@ -25,7 +25,7 @@ pront "reptile" derp
 
 ~o< werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
 
-~o< pront crocks[2] derp
+pront crocks[2] derp
 
 ~o< nom feeshMahth (nom feeshNow, nom feeshAte) dur
 	~o< nom feeshLater = feeshAte - feeshAte derp

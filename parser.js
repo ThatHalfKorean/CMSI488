@@ -340,7 +340,7 @@ function parseExp5() {
   } else if (at('STRLIT')) {
     return new StringLiteral(match())
   } else if (at('ID')) {
-    return new VariableReference(match())
+    return parseVar()
   } else if (at('(')) {
     match()
     var expression = parseExpression()
