@@ -65,7 +65,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           VarDec         ::= Type  Id  ('='  Exp)?  'derp'
           
-          ObjDec        ::= 'dur' (Type  Id  ':' Exp 'derp')+ 'urp'
+          ObjDec         ::= 'thang' Id '=' 'dur' (Type  Id  ':' Exp 'derp')+ 'urp'
           
           FunDec         ::= Type  Id  Params  Block
           

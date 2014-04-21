@@ -119,12 +119,15 @@ function parseVariableDeclaration() {
   var id = match('ID')
   if (at('=')) {
     match('=')
+	//parseValue
     parseExpression()
   }
   match('derp')
-  //should be (id, type, initialValue)
   return new VariableDeclaration(id, type)
 }
+//parseValue check for arrays and anything to the left of the equals that isn't in expressions already.
+//should probably have parse args and params..
+
 
 function parsePropertyDeclaration() {
     if (at(['nom'])) {
