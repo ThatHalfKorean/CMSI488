@@ -16,11 +16,12 @@ urp
 
 
 
-~o< thang reptile = dur 
-~o< werd species:"turtle" derp 
-~o< nom age:10000 derp urp
+thang reptile = dur 
+werd species : "turtle" derp 
+nom age : 10000 derp 
+urp
 
-~o< pront "reptile" derp
+pront "reptile" derp
 
 ~o< werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
 
