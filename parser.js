@@ -32,6 +32,7 @@ var IndexVar = require('./entities/indexvar')
 var DottedVar = require('./entities/dottedvar')
 var IncrementStatement = require('./entities/incrementstatement')
 var ObjectDeclaration = require('./entities/objectdeclaration')
+var PropertyDeclaration = require('./entities/propertydeclaration')
 
 var tokens
 var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'ID', 'pront', 'herez', 'thang']
@@ -125,6 +126,22 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(id, type)
 }
 
+function parsePropertyDeclaration() {
+    if (at(['nom'])) {
+	var type = match('nom')
+  } else if (at(['werd'])) {
+	var type = match('werd')
+  } else if (at(['buul'])){
+	var type = match('buul')
+  }
+    var id = match('ID')
+	match(':')
+	var value = match()
+    match('derp')
+  //should be (id, type, initialValue)
+  return new PropertyDeclaration(id, type, value)
+}
+
 
 
 //needs to be fixed.  What about arrays being passed in? should just push varDecs...
@@ -133,24 +150,12 @@ function parseObjectDeclaration() {
   var id = match('ID')
   match('=')
   match('dur')
-  var propertyTypes = []
-  var propertyIDs = []
-  var propertyExpressions = []
+  var properties = []
   do {
-	if (at(['nom'])) {
-	  propertyTypes.push(match('nom'))
-	} else if (at(['werd'])) {
-	  propertyTypes.push(match('werd'))
-	} else if (at(['buul'])){
-	  propertyTypes.push(match('buul'))
-	}
-	propertyIDs.push(match('ID'))
-	match(':')
-	propertyExpressions.push(parseExpression())
-	match('derp')
+    properties.push(parsePropertyDeclaration())
   } while (at(['nom','werd','buul']))
   match('urp')
-  return new ObjectDeclaration(id, type, propertyTypes, propertyIDs, propertyExpressions)
+  return new ObjectDeclaration(id, properties)
 }
 
 //probably should be tweaked..
