@@ -11,7 +11,7 @@ CallStatement.prototype.analyze = function (context) {
   this.target.analyze(context)
   this.expressions.forEach(function (e) {
     e.analyze(context)
-    e.type.mustBeInteger('Expressions in "call" statement must have type integer')
+    e.type.mustBeNumber('Expressions in "call" statement must have type Number')
   })
 }
 

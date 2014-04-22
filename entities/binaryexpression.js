@@ -17,7 +17,7 @@ BinaryExpression.prototype.analyze = function (context) {
   } else if (/==|!=/.test(op)) {
     this.left.type.mustBeCompatibleWith(this.right.type, 'Operands of "' + op + '" must have same type', this.op)
     this.type = Type.BOOL
-  } else if (/&&|\|\|/.test(op)) { // should this be /&&|||/ instead?
+  } else if (/&&|\|\|/.test(op)) {
     this.bothOperandsMustBe(Type.BOOL)
     this.type = Type.BOOL
   } else {
