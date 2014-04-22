@@ -9,7 +9,7 @@ NumericLiteral.prototype.toString = function () {
 }
 
 NumericLiteral.prototype.analyze = function (context) {
-  this.type = Type.NOM
+  this.type = Type.NUM
 }
 
 module.exports = NumericLiteral
