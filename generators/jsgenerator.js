@@ -32,10 +32,12 @@ function gen(e) {
 
 var generator = {
 
-  'Program': function (program) {
+  'Script': function (program) {
     indentLevel = 0
     emit('(function () {')
-    gen(program.block)
+    script.statements.forEach(function (statement) {
+      gen(statement)
+    })
     emit('}());')
   },
 
@@ -51,6 +53,14 @@ var generator = {
     var initializer = {'int': '0', 'bool': 'false'}[v.type];
     emit(util.format('var %s = %s;', makeVariable(v), initializer))
   },
+  
+  'FunctionDeclaration': function (f) {
+  
+  },
+  
+  'ObjectDeclaration': function (o) {
+  
+  },
 
   'AssignmentStatement': function (s) {
     emit(util.format('%s = %s;', gen(s.target), gen(s.source)))
@@ -61,6 +71,20 @@ var generator = {
       emit(util.format('%s = prompt();', makeVariable(v.referent)))
     })
   },
+  
+  'CallStatement': function (s) {
+  
+  },
+  
+  'ForStatement': function (s) {
+  
+  },
+  
+  'IfStatement': function (s) {
+  
+  },
+  
+  'IncrementStatement'
 
   'WriteStatement': function (s) {
     s.expressions.forEach(function (e) {
@@ -79,6 +103,14 @@ var generator = {
   },
 
   'BooleanLiteral': function (literal) {
+    return literal.toString()
+  },
+  
+  'StringLiteral': function (literal) {
+    return literal.toString()
+  },
+  
+  'NullLiteral': function (literal) {
     return literal.toString()
   },
 
