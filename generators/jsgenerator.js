@@ -104,7 +104,7 @@ var generator = {
     emit('}');
   },
 
-  'IntegerLiteral': function (literal) {
+  'NumericLiteral': function (literal) {
     return literal.toString()
   },
 
