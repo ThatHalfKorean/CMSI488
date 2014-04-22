@@ -73,7 +73,7 @@ var generator = {
   },
   
   'CallStatement': function (s) {
-    
+    emit(util.format('%s = %s;', gen(s.target), gen(s.expressions)))
   },
   
   'ForStatement': function (s) {
@@ -132,10 +132,6 @@ var generator = {
   
   'NullLiteral': function (literal) {
     return literal.toString()
-  },
-
-  'VariableReference': function (v) {
-    return makeVariable(v.referent)
   },
 
   'UnaryExpression': function (e) {
