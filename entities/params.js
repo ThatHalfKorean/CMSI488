@@ -2,7 +2,9 @@ function Params(paramTypes, params){
   this.paramTypes = paramTypes
   this.params = params
 }
+
 Params.prototype.toString = function(){
-  return '( ' +this.params.join(' ')+ ' )'
+  return '(Params ' + JSON.stringify(this.params.lexeme) + ' )'
 }
+
 module.exports = Params

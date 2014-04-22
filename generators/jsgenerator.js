@@ -14,7 +14,7 @@ function emit(line) {
 }
 
 function makeOp(op) {
-  return {not: '!', and: '&&', or: '||'}[op] || op
+  return {'!=': '!==', '==': '==='}[op] || op
 }
 
 var makeVariable = (function () {
@@ -32,12 +32,14 @@ function gen(e) {
 
 var generator = {
 
-  'Script': function (program) {
+  'Script': function (script) {
     indentLevel = 0
     emit('(function () {')
+    indentLevel++
     script.statements.forEach(function (statement) {
       gen(statement)
     })
+    indentLevel--
     emit('}());')
   },
 
@@ -50,8 +52,7 @@ var generator = {
   },
 
   'VariableDeclaration': function (v) {
-    var initializer = {'int': '0', 'bool': 'false'}[v.type];
-    emit(util.format('var %s = %s;', makeVariable(v), initializer))
+    emit(util.format('var %s = %s;', makeVariable(v), v.value ? gen(v.value) : 'undefined'))
   },
   
   'FunctionDeclaration': function (f) {
@@ -130,7 +131,7 @@ var generator = {
   },
 
   'BooleanLiteral': function (literal) {
-    return literal.toString()
+    return {'tru':'true', 'foos':'false'}[literal.toString()]
   },
   
   'StringLiteral': function (literal) {

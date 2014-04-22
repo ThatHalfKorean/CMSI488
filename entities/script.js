@@ -6,7 +6,7 @@ function Script(statements) {
 }
 
 Script.prototype.toString = function () {
-  return '(Script ' + this.statements + ')' 
+  return '(Script ' + this.statements.join(' ') + ')' 
 }
 
 Script.prototype.analyze = function () {

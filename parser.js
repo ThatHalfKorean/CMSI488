@@ -104,35 +104,36 @@ function idChecker() {
 // Needs to be Derpodiled. Need to figure out optional var dec.
 //also should consider default value.
 function parseVariableDeclaration() {
-    var type
+  var type
   if (at(['nom'])) {
-	type = match('nom')
+	  type = match('nom')
   } else if (at(['werd'])) {
-	type = match('werd')
+	  type = match('werd')
   } else if (at(['buul'])){
-	type = match('buul')
+	  type = match('buul')
   }
+
   var id,
       value
 	  
-  if(at('[')){
-	match('[')
-	match(']')
-	id = match('ID')
-	match('=')
-	value = parseArray()
-	match('derp')
+  if (at('[')){
+	  match('[')
+	  match(']')
+	  id = match('ID')
+	  match('=')
+	  value = parseArray()
+	  match('derp')
   } else {
     id = match('ID')
-	if(at('(')){
-	  value = parseFunctionDeclaration()
-	} else {
-	  if(at('=')){
-	    match('=')
-	    value = parseExpression()
+	  if (at('(')){
+	    value = parseFunctionDeclaration()
+	  } else {
+	    if(at('=')){
+	      match('=')
+	      value = parseExpression()
+	    }
+	    match('derp')
 	  }
-	  match('derp')
-	}
   }
   return new VariableDeclaration(id, type, value)
 }
@@ -204,12 +205,12 @@ function parseParams(){
       paramTypes = [];
   if (at(['nom', 'werd', 'buul'])){
     paramTypes.push(match());
-	params.push(match('ID'));
+	  params.push(match('ID'));
   }
-  while(at(',')){
+  while (at(',')){
     match()
-	paramTypes.push(match());
-	params.push(match('ID'));
+	  paramTypes.push(match());
+  	params.push(match('ID'));
   }
   match(')');
   return new Params(paramTypes, params);
