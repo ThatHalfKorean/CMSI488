@@ -13,7 +13,7 @@ BooleanLiteral.prototype.toString = function () {
 }
 
 BooleanLiteral.prototype.analyze = function (context) {
-  this.type = Type.BUUL
+  this.type = Type.BOOL
 }
 
 module.exports = BooleanLiteral
