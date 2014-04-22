@@ -6,21 +6,21 @@ function IfStatement(conditions, bodies, elseBody) {
 }
 
 IfStatement.prototype.toString = function () {
-  var printedTree = ' (Eff ';
+  var printedTree = ' (eff ';
   for(var i = 0; i < this.conditions.length; i++){
     printedTree = printedTree +'( ( ' + this.conditions[i] + ' )' + '( ' + this.bodies[i] + ' ) )'
   }
   if(this.elseBody){
-    printedTree = printedTree + ' Elsh (' + this.elseBody + ')'
+    printedTree = printedTree + ' elsh (' + this.elseBody + ')'
   }
   printedTree = printedTree + ' )'
   return printedTree
 }
 
-// WhileStatement.prototype.analyze = function (context) {
-  // this.condition.analyze(context)
-  // this.condition.type.mustBeBoolean('Condition in "while" statement must be boolean')
-  // this.body.analyze(context)
-// }
+IfStatement.prototype.analyze = function (context) {
+  this.condition.analyze(context)
+  This.body.analyze(context)
+  if (this.elseBody) {this.elseBody.analyze(context)}
+}
 
 module.exports = IfStatement
