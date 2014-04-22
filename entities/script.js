@@ -1,16 +1,18 @@
 var initialContext = require('../analyzer').initialContext
 var HashMap = require('hashmap').HashMap
 
-function Script(block) {
-  this.block = block
+function Script(statements) {
+  this.statements = statements
 }
 
 Script.prototype.toString = function () {
-  return '(Script ' + this.block + ')' 
+  return '(Script ' + this.statements + ')' 
 }
 
 Script.prototype.analyze = function () {
-  this.block.analyze(initialContext())
+  this.statements.forEach(function (statement) {
+    statement.analyze(initialContext())
+  })
 }
 
 Script.prototype.optimize = function () {

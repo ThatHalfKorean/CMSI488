@@ -13,10 +13,10 @@ ObjectDeclaration.prototype.toString = function () {
 }
 
 ObjectDeclaration.prototype.analyze = function (context) {
-	this.localContext = context.createChildContext()
 	this.type = Type.OBJ 
-	properties.forEach(function (p) {
-		p.analyze(localContext)
+	this.localContext = context.createChildContext()
+	this.properties.forEach(function (p) {
+		p.analyze(this.localContext)
 	})
 }
 

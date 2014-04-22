@@ -1,10 +1,11 @@
-function PropertyDeclaration(id, type) {
+function PropertyDeclaration(id, type, value) {
   this.id = id
   this.type = type
+  this.value = value
 }
 
 PropertyDeclaration.prototype.toString = function () {
-  return '(' + this.type.lexeme + ' ' + this.id.lexeme + ')'
+  return '(' + this.type.lexeme + ' ' + this.id.lexeme +' '+this.value + ')'
 }
 
 PropertyDeclaration.prototype.analyze = function (context) {
