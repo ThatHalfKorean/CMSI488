@@ -78,20 +78,32 @@ var generator = {
   
   'ForStatement': function (s) {
     emit('for (' + gen(s.declaration) + ',' + gen(s.condition) + ',' gen(s.assignment) ') {')
-    gen(s.body);
-    emit('}');
+    gen(s.body)
+    emit('}')
   },
   
   'IfStatement': function (s) {
-    
+    emit('if (' + gen(s.conditions[0]) + ') {')
+    gen(s.bodies[0])
+    emit('}')
+    for (var i = 1; i < s.conditions.length; i++) {
+      emit('else if (' + gen(s.conditions[i]) + ') {')
+      gen(s.bodies[i])
+      emit('}')
+    }
+    if (elseBody !== null) {
+      emit('else {')
+      gen(s.elseBody)
+      emit('}')
+    }
   },
   
   'IncrementStatement': function (s) {
     
   },
   
-  'ReturnStatement': function (s) {
-    
+  'ReturnStatement': function (e) {
+    emit(util.format('alert(%s);', gen(e)))
   },
 
   'WriteStatement': function (s) {
@@ -102,8 +114,8 @@ var generator = {
 
   'WhileStatement': function (s) {
     emit('while (' + gen(s.condition) + ') {')
-    gen(s.body);
-    emit('}');
+    gen(s.body)
+    emit('}')
   },
 
   'NumericLiteral': function (literal) {
