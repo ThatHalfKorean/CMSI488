@@ -9,7 +9,7 @@ NullLiteral.prototype.toString = function () {
 }
 
 NullLiteral.prototype.analyze = function (context) {
-  this.type = Type.NULL
+  this.type = Type.NUL
 }
 
 module.exports = NullLiteral
