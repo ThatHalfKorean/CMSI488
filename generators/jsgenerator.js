@@ -84,7 +84,13 @@ var generator = {
   
   },
   
-  'IncrementStatement'
+  'IncrementStatement': function (s) {
+  
+  },
+  
+  'ReturnStatement': function (s) {
+  
+  },
 
   'WriteStatement': function (s) {
     s.expressions.forEach(function (e) {

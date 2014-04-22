@@ -11,19 +11,32 @@ Type.prototype.toString = function () {
   return this.name
 }
 
-exports.BUUL = Type.BUUL = new Type('buul')
-exports.NOM = Type.NOM = new Type('nom')
+exports.BOOL = Type.BOOL = new Type('buul')
+exports.NUM = Type.NUM = new Type('nom')
 exports.STR = Type.STR = new Type('werd')
+exports.OBJ = Type.OBJ = new Type('thang')
 exports.forName = function (name) {return cache[name]}
 
 Type.prototype.mustBeInteger = function (message, location) {
-  if (this !== Type.INT) {
+  if (this !== Type.NUM) {
     error(message, location)
   }
 }
 
 Type.prototype.mustBeBoolean = function (message, location) {
   if (this !== Type.BOOL) {
+    error(message, location)
+  }
+}
+
+Type.prototype.mustBeString = function (message, location) {
+  if (this !== Type.STR) {
+    error(message, location)
+  }
+}
+
+Type.prototype.mustBeObject = function (message, location) {
+  if (this !== Type.OBJ) {
     error(message, location)
   }
 }
