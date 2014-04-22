@@ -12,18 +12,18 @@ BinaryExpression.prototype.analyze = function (context) {
   this.right.analyze(context)
   op = this.op.lexeme
   if (/<=?|>=?/.test(op)) {
-    this.bothOperandsMustBe(Type.INT)
-    this.type = Type.BOOL
+    this.bothOperandsMustBe(Type.NOM)
+    this.type = Type.BUUL
   } else if (/==|!=/.test(op)) {
     this.left.type.mustBeCompatibleWith(this.right.type, 'Operands of "' + op + '" must have same type', this.op)
-    this.type = Type.BOOL
-  } else if (/and|or/.test(op)) {
-    this.bothOperandsMustBe(Type.BOOL)
-    this.type = Type.BOOL
+    this.type = Type.BUUL
+  } else if (/&&|\|\|/.test(op)) { // should this be /&&|||/ instead?
+    this.bothOperandsMustBe(Type.BUUL)
+    this.type = Type.BUUL
   } else {
     // All other binary operators are arithmetic
-    this.bothOperandsMustBe(Type.INT)
-    this.type = Type.INT
+    this.bothOperandsMustBe(Type.NOM)
+    this.type = Type.NOM
   }
 }
 
