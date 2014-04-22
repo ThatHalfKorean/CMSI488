@@ -99,7 +99,7 @@ var generator = {
   },
   
   'IncrementStatement': function (s) {
-    
+    emit(util.format(makeVariable(s.target) + s.operator))
   },
   
   'ReturnStatement': function (e) {
