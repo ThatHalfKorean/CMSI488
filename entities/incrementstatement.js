@@ -1,12 +1,13 @@
-function IncrementStatement(target) {
+function IncrementStatement(target, symbol) {
   this.target = target
+  this.symbol = symbol
 }
 
 IncrementStatement.prototype.toString = function () {
-  return '( Increment ' + this.target + ')'
+  return '( ' +this.symbol +' '+ this.target + ')'
 }
 
-IncrementStatement.prototype.toString = function (context) {
+IncrementStatement.prototype.analyze = function (context) {
 	context.lookupVariable(target)
 }
 

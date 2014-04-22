@@ -18,7 +18,7 @@ UnaryExpression.prototype.analyze = function (context) {
   //   // this.op.lexeme === '-'
   //   this.operand.type.mustBeInteger('The "negation" operator requires an integer operand', this.op)
   //   this.type = Type.NUM
-  }
+  //}
 }
 
 module.exports = UnaryExpression

@@ -7,7 +7,7 @@ function ForStatement(declaration, condition, assignment, body) {
 
 ForStatement.prototype.toString = function () {
   return '(Fer ' + this.declaration + 'derp' + this.condition + 
-  		  'derp' + this.assignment + ' ' + this.body ')'
+  		  'derp' + this.assignment + ' ' + this.body + ')'
 }
 
 ForStatement.prototype.analyze = function (context) {

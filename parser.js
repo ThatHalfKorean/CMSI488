@@ -32,6 +32,12 @@ var DottedVar = require('./entities/dottedvar')
 var IncrementStatement = require('./entities/incrementstatement')
 var ObjectDeclaration = require('./entities/objectdeclaration')
 var PropertyDeclaration = require('./entities/propertydeclaration')
+var ArrayEntity = require('./entities/arrayentity')
+var FunctionDeclaration = require('./entities/functiondeclaration')
+var Params = require('./entities/params')
+
+
+
 
 var tokens
 var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'ID', 'pront', 'herez', 'thang']
@@ -98,43 +104,116 @@ function idChecker() {
 // Needs to be Derpodiled. Need to figure out optional var dec.
 //also should consider default value.
 function parseVariableDeclaration() {
+    var type
   if (at(['nom'])) {
-	var type = match('nom')
+	type = match('nom')
   } else if (at(['werd'])) {
-	var type = match('werd')
+	type = match('werd')
   } else if (at(['buul'])){
-	var type = match('buul')
+	type = match('buul')
   }
-  var id = match('ID')
-  if (at('=')) {
-    match('=')
-	//parseValue
-    parseExpression()
+  var id,
+      value
+	  
+  if(at('[')){
+	match('[')
+	match(']')
+	id = match('ID')
+	match('=')
+	value = parseArray()
+	match('derp')
+  } else {
+    id = match('ID')
+	if(at('(')){
+	  value = parseFunctionDeclaration()
+	} else {
+	  if(at('=')){
+	    match('=')
+	    value = parseExpression()
+	  }
+	  match('derp')
+	}
   }
-  match('derp')
-  return new VariableDeclaration(id, type)
+  return new VariableDeclaration(id, type, value)
 }
-//parseValue check for arrays and anything to the left of the equals that isn't in expressions already.
-//should probably have parse args and params..
+
+
+
 
 
 function parsePropertyDeclaration() {
-    if (at(['nom'])) {
-	var type = match('nom')
-  } else if (at(['werd'])) {
-	var type = match('werd')
-  } else if (at(['buul'])){
-	var type = match('buul')
+  var type
+  if (at('thang')){
+    return parseObjectDeclaration()
   }
-    var id = match('ID')
+  else if (at(['nom'])) {
+	type = match('nom')
+  } else if (at(['werd'])) {
+	type = match('werd')
+  } else if (at(['buul'])){
+	type = match('buul')
+  }
+  var id,
+      value
+	  
+  if(at('[')){
+	match('[')
+	match(']')
+	id = match('ID')
 	match(':')
-	var value = match()
-    match('derp')
-  //should be (id, type, initialValue)
+	value = parseArray()
+	match('derp')
+  } else {
+    id = match('ID')
+	if(at('(')){
+	  value = parseFunctionDeclaration()
+	} else {
+	  match(':')
+	  value = parseExpression()
+	  match('derp')
+	}
+  }
   return new PropertyDeclaration(id, type, value)
 }
 
+function parseArray(){
+  match('[')
+  var elements = []
+  if(!at(']')){
+    elements.push(parseExpression())
+  }
+  while(at(',')){
+    match()
+	elements.push(parseExpression())
+  }
+  match(']')
+  return new ArrayEntity(elements)
+}
 
+function parseFunctionDeclaration(){
+  var params = parseParams();
+  //match('dur');
+  var body = parseBlock();
+  //match('urp');
+  return new FunctionDeclaration(params, body);
+}
+
+function parseParams(){
+  match('(');
+  var params = [],
+      paramTypes = [];
+  if (at(['nom', 'werd', 'buul'])){
+    paramTypes.push(match());
+	params.push(match('ID'));
+  }
+  while(at(',')){
+    match()
+	paramTypes.push(match());
+	params.push(match('ID'));
+  }
+  match(')');
+  return new Params(paramTypes, params);
+}
 
 //needs to be fixed.  What about arrays being passed in? should just push varDecs...
 function parseObjectDeclaration() {
@@ -158,14 +237,17 @@ function parseAssignmentStatement(target) {
   return new AssignmentStatement(target, source)
 }
 
+//plus plus or minus minus?
 function parseIncrementStatement(target) {
+  var positive;
   if (at('++')) {
+    positive = true;
     match('++')
   } else if (at('--')) {
     match('--')
   }
   match('derp')
-  return new IncrementStatement(target)
+  return new IncrementStatement(target, (positive ? "++" : "--") )
 }
 
 function parseVar() {
@@ -330,7 +412,7 @@ function parseExp4() {
 
 function parseExp5() {
   if (at(['tru','foos'])) {
-    return new BooleanLiteral.forName(match().lexeme)
+    return new BooleanLiteral(match().lexeme)
   } else if (at('NUMLIT')) {
     return new NumericLiteral(match())
   }else if (at('NULLLIT')) {

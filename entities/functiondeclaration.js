@@ -1,15 +1,13 @@
 var Type = require('./type')
 
-function FunctionDeclaration(id, type, parameters, body) {
-  this.id = id
-  this.type = type
-  this.parameters = parameters
+function FunctionDeclaration(params, body) {
+  this.params = params
   this.body = body
 }
 
 FunctionDeclaration.prototype.toString = function () {
-  return '(' +  this.type + ' ' + this.id + this.parameters.join(', ') +
-         ' '+ this.body ')'
+  return '( ('  + this.params +
+         ' ) ( '+ this.body+ ' ))'
 }
 
 FunctionDeclaration.prototype.analyze = function(context) {

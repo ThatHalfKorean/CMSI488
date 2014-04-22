@@ -3,7 +3,7 @@ nom x derp
 nom y derp
 
 eef 1 < 2 dur
-  x-- derp ~o< why is this undefined?
+  x-- derp 
 urp elsheef 2 > 1 dur
  x++ derp
 urp elsh dur
@@ -23,17 +23,17 @@ urp
 
 pront "reptile" derp
 
-~o< werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
+ werd[] crocks = ["nurr-hurr", "eek", "Charles", "nipderp"] derp
 
 pront crocks[2] derp
 
-~o< nom feeshMahth (nom feeshNow, nom feeshAte) dur
-	~o< nom feeshLater = feeshAte - feeshAte derp
-	~o< eef feeshLater == 0 dur
-		~o< pront ":(" derp
-	~o< urp
-	~o< herez feeshLater derp	
-~o< urp
+ nom feeshMahth (nom feeshNow, nom feeshAte) dur
+	nom feeshLater = feeshAte - feeshAte derp
+	eef feeshLater == 0 dur
+		pront ":(" derp
+	urp
+	herez feeshLater derp	
+urp
 
 pront feeshMahth(7,7) derp
 
