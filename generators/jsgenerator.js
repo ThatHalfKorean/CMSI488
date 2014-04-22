@@ -9,7 +9,7 @@ var indentPadding = 4
 var indentLevel = 0
 
 function emit(line) {
-  var pad = indentPadding * indentLevel;
+  var pad = indentPadding * indentLevel
   console.log(Array(pad+1).join(' ') + line)
 }
 
@@ -18,7 +18,7 @@ function makeOp(op) {
 }
 
 var makeVariable = (function () {
-  var lastId = 0;
+  var lastId = 0
   var map = new HashMap()
   return function (v) {
     if (!map.has(v)) map.set(v, ++lastId)
@@ -55,11 +55,11 @@ var generator = {
   },
   
   'FunctionDeclaration': function (f) {
-  
+    
   },
   
   'ObjectDeclaration': function (o) {
-  
+    
   },
 
   'AssignmentStatement': function (s) {
@@ -73,23 +73,25 @@ var generator = {
   },
   
   'CallStatement': function (s) {
-  
+    
   },
   
   'ForStatement': function (s) {
-  
+    emit('for (' + gen(s.declaration) + ',' + gen(s.condition) + ',' gen(s.assignment) ') {')
+    gen(s.body);
+    emit('}');
   },
   
   'IfStatement': function (s) {
-  
+    
   },
   
   'IncrementStatement': function (s) {
-  
+    
   },
   
   'ReturnStatement': function (s) {
-  
+    
   },
 
   'WriteStatement': function (s) {

@@ -24,7 +24,6 @@ var NumericLiteral = require('./entities/numericliteral')
 var BooleanLiteral = require('./entities/booleanliteral')
 var StringLiteral = require('./entities/stringliteral')
 var NullLiteral = require('./entities/nullliteral')
-var VariableReference = require('./entities/variablereference')
 var BinaryExpression = require('./entities/binaryexpression')
 var UnaryExpression = require('./entities/unaryexpression')
 var BasicVar = require('./entities/basicvar')
@@ -94,16 +93,6 @@ function idChecker() {
   } else {
     return name
   }
-  // var target = new VariableReference(match('ID'))
-  // if (at('=')) {
-  //   return parseAssignmentStatement(target)
-  // } else if (at('(')){
-  //   return parseCallStatement(target)
-  // } else if (at(['++','--'])){
-  //   return parseIncrementStatement(target)
-  // } else if (at(['[','.','('])){
-  //   return parseVar()
-  // }
 }
 
 // Needs to be Derpodiled. Need to figure out optional var dec.
