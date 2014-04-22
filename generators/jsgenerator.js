@@ -59,7 +59,12 @@ var generator = {
   },
   
   'ObjectDeclaration': function (o) {
-    
+    emit('while (' + gen(s.condition) + ') {')
+    o.properties.forEach(function (property) {
+      var initializer = {'int': '0', 'bool': 'false'}[v.type];
+      emit(util.format('%s : %s,', property.id, initializer))
+    })
+    emit('}')
   },
 
   'AssignmentStatement': function (s) {
