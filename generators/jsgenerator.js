@@ -62,12 +62,8 @@ var generator = {
   },
   
   'ObjectDeclaration': function (o) {
-    emit('while (' + gen(s.condition) + ') {')
-    o.properties.forEach(function (property) {
-      var initializer = {'int': '0', 'bool': 'false'}[v.type];
-      emit(util.format('%s : %s,', property.id, initializer))
-    })
-    emit('}')
+    // TODO: Most likely this is whacked
+    emit('{' + o.properties.map(gen).join(',') + '}')
   },
 
   'AssignmentStatement': function (s) {
@@ -81,11 +77,12 @@ var generator = {
   },
   
   'CallStatement': function (s) {
+    // TODO: This needs major fixing
     emit(util.format('%s = %s;', gen(s.target), gen(s.expressions)))
   },
   
   'ForStatement': function (s) {
-    emit('for (' + gen(s.declaration) + ',' + gen(s.condition) + ',' + gen(s.assignment) + ') {')
+    emit('for (' + gen(s.declaration) + ';' + gen(s.condition) + ';' + gen(s.assignment) + ') {')
     gen(s.body)
     emit('}')
   },
@@ -111,7 +108,7 @@ var generator = {
   },
   
   'ReturnStatement': function (e) {
-    emit(util.format('alert(%s);', gen(e)))
+    emit(util.format('return %s;', gen(e)))
   },
 
   'WriteStatement': function (s) {
@@ -139,7 +136,7 @@ var generator = {
   },
   
   'NullLiteral': function (literal) {
-    return literal.toString()
+    return 'null'
   },
 
   'UnaryExpression': function (e) {
