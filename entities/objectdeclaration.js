@@ -1,3 +1,5 @@
+var Type = require('./type')
+
 function ObjectDeclaration(id, properties) {
   this.id = id
   this.properties = properties
@@ -14,9 +16,9 @@ ObjectDeclaration.prototype.toString = function () {
 
 ObjectDeclaration.prototype.analyze = function (context) {
 	this.type = Type.OBJ 
-	this.localContext = context.createChildContext()
+	var localContext = context.createChildContext()
 	this.properties.forEach(function (p) {
-		p.analyze(this.localContext)
+		p.analyze(localContext)
 	})
 }
 

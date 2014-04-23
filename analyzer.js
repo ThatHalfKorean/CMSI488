@@ -1,4 +1,5 @@
 var error = require('./error')
+var VariableDeclaration = require('./entities/VariableDeclaration')
 
 function AnalysisContext(parent) {
   this.parent = parent
@@ -23,14 +24,15 @@ AnalysisContext.prototype.addVariable = function (name, entity) {
   this.symbolTable[name] = entity
 }
 
-AnalysisContext.prototype.lookupVariable = function (token) {
-  var variable = this.symbolTable[token.lexeme]
+AnalysisContext.prototype.lookupVariable = function (name) {
+  var variable = this.symbolTable[name]
   if (variable) {
     return variable
   } else if (!this.parent) {
-    error('Variable ' + token.lexeme + ' not found', token)
+    error('Variable ' + name + ' not found')
+    return VariableDeclaration.ARBITRARY
   } else {
-    return this.parent.lookupVariable(token)
+    return this.parent.lookupVariable(name)
   }
 }
 

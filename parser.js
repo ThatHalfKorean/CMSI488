@@ -280,7 +280,7 @@ function parseDottedVar (struct) {
 
 function parseIndexVar (array) {
   match('[')
-  var indexVar = new IndexVar(array.name, parseExpression())
+  var indexVar = new IndexVar(array, parseExpression())
   match(']')
   return indexVar
 }

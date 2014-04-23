@@ -16,6 +16,7 @@ exports.NUM = Type.NUM = new Type('nom')
 exports.STR = Type.STR = new Type('werd')
 exports.NUL = Type.NUL = new Type('nurr')
 exports.OBJ = Type.OBJ = new Type('thang')
+exports.ARBITRARY = Type.ARBITRARY = new Type('<arbitrary_type>')
 exports.forName = function (name) {return cache[name]}
 
 Type.prototype.mustBeInteger = function (message, location) {
