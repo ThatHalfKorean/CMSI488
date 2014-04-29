@@ -122,6 +122,11 @@ var generator = {
     gen(s.body)
     emit('}')
   },
+  
+  'ArrayExpression': function (a) {
+    var elements = a.map(function (e) {return gen(e)})
+    return '[' + elements.join(',') + ']'
+  },
 
   'NumericLiteral': function (literal) {
     return literal.toString()
