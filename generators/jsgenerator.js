@@ -123,7 +123,7 @@ var generator = {
     emit('}')
   },
   
-  'ArrayExpression': function (a) {
+  'ArrayEntity': function (a) {
     var elements = a.map(function (e) {return gen(e)})
     return '[' + elements.join(',') + ']'
   },
