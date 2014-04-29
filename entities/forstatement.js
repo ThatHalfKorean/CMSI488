@@ -9,7 +9,12 @@ ForStatement.prototype.toString = function () {
 }
 
 ForStatement.prototype.analyze = function (context) {
-  this.conditions.analyze(context)
+  
+  var localContext = context.createChildContext()
+  this.conditions.forEach(function (conditions) {
+    conditions.analyze(localContext)
+  })
+  //this.conditions.analyze(context)
   this.body.analyze(context)
 }
 

@@ -328,10 +328,11 @@ function parseForStatement() {
   match('fer')
   var conditions = []
   conditions.push(parseVariableDeclaration())
-  match('derp')
+  //match('derp')
   conditions.push(parseExpression())
   match('derp')
-  conditions.push(parseIncrementStatement())
+  conditions.push(idChecker())
+  //match('derp')
   var body = parseBlock()
   return new ForStatement(conditions, body)
 }
