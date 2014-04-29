@@ -106,40 +106,37 @@ function idChecker() {
 function parseVariableDeclaration() {
   var type
   if (at(['nom'])) {
-	  type = match('nom')
+    type = match('nom')
   } else if (at(['werd'])) {
-	  type = match('werd')
+    type = match('werd')
   } else if (at(['buul'])){
-	  type = match('buul')
+    type = match('buul')
   }
 
   var id,
-      value
-	  
+  value
+
   if (at('[')){
-	  match('[')
-	  match(']')
-	  id = match('ID')
-	  match('=')
-	  value = parseArray()
-	  match('derp')
+    match('[')
+    match(']')
+    id = match('ID')
+    match('=')
+    value = parseArray()
+    match('derp')
   } else {
     id = match('ID')
-	  if (at('(')){
-	    value = parseFunctionDeclaration()
-	  } else {
-	    if(at('=')){
-	      match('=')
-	      value = parseExpression()
-	    }
-	    match('derp')
-	  }
+    if (at('(')){
+      value = parseFunctionDeclaration()
+    } else {
+      if(at('=')){
+        match('=')
+        value = parseExpression()
+      }
+      match('derp')
+    }
   }
   return new VariableDeclaration(id, type, value)
 }
-
-
-
 
 
 function parsePropertyDeclaration() {
@@ -158,21 +155,21 @@ function parsePropertyDeclaration() {
       value
 	  
   if(at('[')){
-	match('[')
-	match(']')
-	id = match('ID')
-	match(':')
-	value = parseArray()
-	match('derp')
+    match('[')
+    match(']')
+    id = match('ID')
+    match(':')
+    value = parseArray()
+    match('derp')
   } else {
     id = match('ID')
-	if(at('(')){
-	  value = parseFunctionDeclaration()
-	} else {
-	  match(':')
-	  value = parseExpression()
-	  match('derp')
-	}
+    if(at('(')){
+      value = parseFunctionDeclaration()
+    } else {
+      match(':')
+      value = parseExpression()
+      match('derp')
+    }
   }
   return new PropertyDeclaration(id, type, value)
 }
@@ -185,7 +182,7 @@ function parseArray(){
   }
   while(at(',')){
     match()
-	elements.push(parseExpression())
+    elements.push(parseExpression())
   }
   match(']')
   return new ArrayEntity(elements)
@@ -205,12 +202,12 @@ function parseParams(){
       paramTypes = [];
   if (at(['nom', 'werd', 'buul'])){
     paramTypes.push(match());
-	  params.push(match('ID'));
+    params.push(match('ID'));
   }
   while (at(',')){
     match()
-	  paramTypes.push(match());
-  	params.push(match('ID'));
+    paramTypes.push(match());
+    params.push(match('ID'));
   }
   match(')');
   return new Params(paramTypes, params);
@@ -349,8 +346,8 @@ function parseIfStatement() {
   
   while (at('elsheef')) {
     match('elsheef')
-	conditions.push(parseExpression())
-	bodies.push(parseBlock())
+    conditions.push(parseExpression())
+    bodies.push(parseBlock())
   }
  
   if (at('elsh')) {
