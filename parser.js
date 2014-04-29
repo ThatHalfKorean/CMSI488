@@ -332,6 +332,7 @@ function parseForStatement() {
   conditions.push(parseExpression())
   match('derp')
   conditions.push(parseIncrementStatement())
+  var body = parseBlock()
   return new ForStatement(conditions, body)
 }
 
