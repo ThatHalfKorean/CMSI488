@@ -146,6 +146,9 @@ var generator = {
   'NullLiteral': function (literal) {
     return 'null'
   },
+   'BasicVar': function (v) {
+    return makeVariable(v.referent)
+  },
 
   'UnaryExpression': function (e) {
     return util.format('(%s %s)', makeOp(e.op.lexeme), gen(e.operand))

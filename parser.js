@@ -105,15 +105,7 @@ function idChecker() {
 // Needs to be Derpodiled. Need to figure out optional var dec.
 //also should consider default value.
 function parseVariableDeclaration() {
-  var type
-  if (at(['nom'])) {
-    type = match('nom')
-  } else if (at(['werd'])) {
-    type = match('werd')
-  } else if (at(['buul'])){
-    type = match('buul')
-  }
-
+  var type = parseType()
   var id,
   value
 
@@ -139,19 +131,22 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(id, type, value)
 }
 
+function parseType() {
+  if (at(['nom','buul','werd'])) {
+    return Type.forName(match().lexeme)
+  } else {
+    error('Type expected', tokens[0])
+  }
+}
 //must parse type!!! 
 
 function parsePropertyDeclaration() {
   var type
   if (at('thang')){
-    return parseObjectDeclaration()
+   parseObjectDeclaration()
   }
-  else if (at(['nom'])) {
-	type = match('nom')
-  } else if (at(['werd'])) {
-	type = match('werd')
-  } else if (at(['buul'])){
-	type = match('buul')
+  else{
+    type = parseType()
   }
   var id,
       value
