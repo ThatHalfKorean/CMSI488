@@ -10,7 +10,7 @@ ForStatement.prototype.toString = function () {
 
 ForStatement.prototype.analyze = function (context) {
   
-  var localContext = context.createChildContext()
+
   this.conditions.forEach(function (conditions) {
     conditions.analyze(context)
   })

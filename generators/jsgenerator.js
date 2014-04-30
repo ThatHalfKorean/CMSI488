@@ -116,7 +116,7 @@ var generator = {
 
   'WriteStatement': function (s) {
     s.expressions.forEach(function (e) {
-      emit(util.format('alert(%s);', gen(e)))
+      emit(util.format('alert("%s");', gen(e)))
     })
   },
 
@@ -146,7 +146,7 @@ var generator = {
   'NullLiteral': function (literal) {
     return 'null'
   },
-   'BasicVar': function (v) {
+  'BasicVar': function (v) {
     return makeVariable(v.referent)
   },
 
