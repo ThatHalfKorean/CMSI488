@@ -11,13 +11,13 @@ Type.prototype.toString = function () {
   return this.name
 }
 
-exports.BOOL = Type.BOOL = new Type('buul')
-exports.NUM = Type.NUM = new Type('nom')
-exports.STR = Type.STR = new Type('werd')
-exports.NUL = Type.NUL = new Type('nurr')
-exports.OBJ = Type.OBJ = new Type('thang')
-exports.ARBITRARY = Type.ARBITRARY = new Type('<arbitrary_type>')
-exports.forName = function (name) {return cache[name]}
+Type.BOOL = new Type('buul')
+Type.NUM = new Type('nom')
+Type.STR = new Type('werd')
+Type.NUL = new Type('nurr')
+Type.OBJ = new Type('thang')
+Type.ARBITRARY = new Type('<arbitrary_type>')
+
 
 Type.prototype.mustBeInteger = function (message, location) {
   if (this !== Type.NUM) {
@@ -51,11 +51,21 @@ Type.prototype.mustBeObject = function (message, location) {
 
 Type.prototype.isCompatibleWith = function (otherType) {
   // In more sophisticated languages, comapatibility would be more complex
-  return (this == otherType) || (this == null) || (otherType == null)  
+  return (this === otherType) || (this === Type.ARBITRARY) || (otherType === Type.ARBITRARY)  
 }
 
 Type.prototype.mustBeCompatibleWith = function (otherType, message, location) {
   if (! this.isCompatibleWith(otherType)) {
     error(message, location)
   }
+}
+
+module.exports = {
+  BOOL: Type.BOOL,
+  NUM: Type.NUM,
+  STR: Type.STR,
+  NUL: Type.NUL,
+  OBJ: Type.OBJ,
+  ARBITRARY: Type.ARBITRARY,
+  forName : function (name) {return cache[name]}
 }

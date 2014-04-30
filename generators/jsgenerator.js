@@ -82,7 +82,7 @@ var generator = {
   },
   
   'ForStatement': function (s) {
-    emit(util.format('for (%s; %s; %s {',
+    emit(util.format('for (%s; %s; %s) {',
         gen(s.conditions[0]),
         gen(s.conditions[1]),
         gen(s.conditions[2])))
