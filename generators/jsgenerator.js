@@ -127,8 +127,7 @@ var generator = {
   },
   
   'ArrayEntity': function (a) {
-    var elements = a.map(function (e) {return gen(e)})
-    return '[' + elements.join(',') + ']'
+    return '[' + a.elements.join(',') + ']'
   },
 
   'NumericLiteral': function (literal) {
