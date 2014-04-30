@@ -90,6 +90,7 @@ function parseStatement() {
   }
 }
 
+
 function idChecker() {
   var name = parseVar()
   if (at('=')) {
@@ -138,6 +139,7 @@ function parseVariableDeclaration() {
   return new VariableDeclaration(id, type, value)
 }
 
+//must parse type!!! 
 
 function parsePropertyDeclaration() {
   var type
@@ -267,7 +269,7 @@ function parseVar() {
 }
 
 function parseBasicVar () {
-  return new BasicVar(match('ID').lexeme)
+  return new BasicVar(match('ID'))
 }
 
 function parseDottedVar (struct) {

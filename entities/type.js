@@ -20,33 +20,23 @@ Type.ARBITRARY = new Type('<arbitrary_type>')
 
 
 Type.prototype.mustBeInteger = function (message, location) {
-  if (this !== Type.NUM) {
-    error(message, location)
-  }
+  this.mustBeCompatibleWith(Type.NUM, message)
 }
 
 Type.prototype.mustBeBoolean = function (message, location) {
-  if (this !== Type.BOOL) {
-    error(message, location)
-  }
+  this.mustBeCompatibleWith(Type.BOOL, message)
 }
 
 Type.prototype.mustBeString = function (message, location) {
-  if (this !== Type.STR) {
-    error(message, location)
-  }
+  this.mustBeCompatibleWith(Type.STR, message)
 }
 
 Type.prototype.mustBeNull = function (message, location) {
-  if (this !== Type.NUL) {
-    error(message, location)
-  }
+ this.mustBeCompatibleWith(Type.NUL, message)
 }
 
 Type.prototype.mustBeObject = function (message, location) {
-  if (this !== Type.OBJ) {
-    error(message, location)
-  }
+  this.mustBeCompatibleWith(Type.OBJ, message)
 }
 
 Type.prototype.isCompatibleWith = function (otherType) {
