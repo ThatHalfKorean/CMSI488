@@ -1,3 +1,5 @@
+var Type = require('./type')
+
 function AssignmentStatement(target, source) {
   this.target = target
   this.source = source
