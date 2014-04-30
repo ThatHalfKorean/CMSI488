@@ -99,7 +99,7 @@ var generator = {
       gen(s.bodies[i])
       emit('}')
     }
-    if (elseBody !== null) {
+    if (s.elseBody !== null) {
       emit('else {')
       gen(s.elseBody)
       emit('}')

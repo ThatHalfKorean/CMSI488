@@ -12,7 +12,7 @@ ForStatement.prototype.analyze = function (context) {
   
   var localContext = context.createChildContext()
   this.conditions.forEach(function (conditions) {
-    conditions.analyze(localContext)
+    conditions.analyze(context)
   })
   //this.conditions.analyze(context)
   this.body.analyze(context)

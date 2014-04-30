@@ -18,8 +18,12 @@ IfStatement.prototype.toString = function () {
 }
 
 IfStatement.prototype.analyze = function (context) {
-  //this.condition.analyze(context)
-  //this.body.analyze(context)
+  this.conditions.forEach(function (conditions) {
+    conditions.analyze(context)
+  })
+   this.bodies.forEach(function (bodies) {
+    bodies.analyze(context)
+  })
   if (this.elseBody) {this.elseBody.analyze(context)}
 }
 
