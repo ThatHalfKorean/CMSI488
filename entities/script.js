@@ -10,8 +10,9 @@ Script.prototype.toString = function () {
 }
 
 Script.prototype.analyze = function () {
+  var context = initialContext();
   this.statements.forEach(function (statement) {
-    statement.analyze(initialContext())
+    statement.analyze(context)
   })
 }
 
