@@ -7,6 +7,6 @@ ReturnStatement.prototype.toString = function () {
 }
 
 ReturnStatement.prototype.analyze = function (context) {
-	this.analyze(context)
+    this.expression.analyze(context)
 }
 module.exports = ReturnStatement;

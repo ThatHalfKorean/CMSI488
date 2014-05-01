@@ -86,10 +86,16 @@ var generator = {
   },
   
   'ForStatement': function (s) {
+    function initializer(v) {
+      return util.format('var %s = %s', makeVariable(v), v.value ? gen(v.value) : 'undefined')
+    }
+    function increment(v) {
+      return util.format('%s', gen(v.target) + v.symbol)
+    }
     emit(util.format('for (%s; %s; %s) {',
-        gen(s.declaration),
+        initializer(s.declaration),
         gen(s.condition),
-        gen(s.assignment)))
+        increment(s.assignment)))
     gen(s.body)
     emit('}')
   },
