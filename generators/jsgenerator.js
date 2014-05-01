@@ -121,7 +121,7 @@ var generator = {
   },
   
   'ReturnStatement': function (e) {
-    emit(util.format('return %s;', gen(e)))
+    emit(util.format('return %s;', gen(e.expression)))
   },
 
   'WriteStatement': function (s) {
