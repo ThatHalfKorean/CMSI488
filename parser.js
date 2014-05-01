@@ -323,15 +323,11 @@ function parseWhileStatement() {
 // Needs work.
 function parseForStatement() {
   match('fer')
-  var conditions = []
-  conditions.push(parseVariableDeclaration())
-  //match('derp')
-  conditions.push(parseExpression())
-  match('derp')
-  conditions.push(idChecker())
-  //match('derp')
+  var declaration = parseVariableDeclaration()
+  var condition = parseExpression()
+  var assignment = idChecker()
   var body = parseBlock()
-  return new ForStatement(conditions, body)
+  return new ForStatement(declaration, condition, assignment, body)
 }
 
 // Not working correctly
