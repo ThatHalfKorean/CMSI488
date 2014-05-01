@@ -58,10 +58,10 @@ function scan(line, linenumber, tokens) {
       emit(line[pos++])
 
    
-    }  else if (nullExample.test(nullTest)) {
-        emit('NULLLIT')
-		pos += 4
-     // Reserved words or identifiers
+    } else if (nullExample.test(nullTest)) {
+      emit('NULLLIT')
+      pos += 4
+    // Reserved words or identifiers
     } else if (/[A-Za-z]/.test(line[pos])) {
       while (/\w/.test(line[pos]) && pos < line.length) pos++
       var word = line.substring(start, pos)
@@ -73,38 +73,38 @@ function scan(line, linenumber, tokens) {
     
     // String Literals
     } else if (/[\"\']/.test(line[pos])) {
-            var s = [],
-                parenCheck = true,
-                emptyString = (line[pos+1] === '\"' || line[pos+1] === '\'')
+      var s = [],
+      parenCheck = true,
+      emptyString = (line[pos+1] === '\"' || line[pos+1] === '\'')
 
-            while (/.+/.test(line[++pos]) && pos < line.length && parenCheck) { 
-                if (line[pos] === '\\') {
-                    s = s.concat(line[pos])
-                    if (oneCharEscapeChars.test(line.substring(pos+1, pos+2))) {
-                        s = s.concat(line.substring(pos+1, pos+2))
-                        pos++
-                    } else if (controlEscapeChars.test(line.substring(pos+1, pos+3))) {
-                        s = s.concat(line.substring(pos+1, pos+3))
-                        pos += 2
-                    } else if (hexEscapeCharacters.test(line.substring(pos+1, pos+4))) {
-                        s = s.concat(line.substring(pos+1, pos+4))
-                        pos += 3
-                    } else if (uniEscapeChars.test(line.substring(pos+1, pos+6))) {
-                        s = s.concat(line.substring(pos+1, pos+6))
-                        pos += 5
-                    } else {
-                        pos++
-                    }
-                } else if (emptyString) {
-                    parenCheck = false;
-                    emit('STRLIT', "", true)
-                } else if (line[pos] === '\"' || line[pos] === '\'') {
-                    parenCheck = false;
-                    emit('STRLIT', s.join(''))
-                } else {
-                    s = s.concat(line[pos])
-                }
-            }
+      while (/.+/.test(line[++pos]) && pos < line.length && parenCheck) { 
+        if (line[pos] === '\\') {
+          s = s.concat(line[pos])
+          if (oneCharEscapeChars.test(line.substring(pos+1, pos+2))) {
+            s = s.concat(line.substring(pos+1, pos+2))
+            pos++
+          } else if (controlEscapeChars.test(line.substring(pos+1, pos+3))) {
+            s = s.concat(line.substring(pos+1, pos+3))
+            pos += 2
+          } else if (hexEscapeCharacters.test(line.substring(pos+1, pos+4))) {
+            s = s.concat(line.substring(pos+1, pos+4))
+            pos += 3
+          } else if (uniEscapeChars.test(line.substring(pos+1, pos+6))) {
+            s = s.concat(line.substring(pos+1, pos+6))
+            pos += 5
+          } else {
+            pos++
+          }
+        } else if (emptyString) {
+          parenCheck = false;
+          emit('STRLIT', "", true)
+        } else if (line[pos] === '\"' || line[pos] === '\'') {
+          parenCheck = false;
+          emit('STRLIT', s.join(''))
+        } else {
+          s = s.concat(line[pos])
+        }
+      }
 	//Num Lits		
     } else if (/\d/.test(line[pos])) {
       while (/\d/.test(line[pos])) pos++
