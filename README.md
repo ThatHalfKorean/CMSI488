@@ -85,7 +85,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           ReturnStmt     ::= 'herez' Exp 'derp'
           
-          ForStmt        ::= 'fer' (VarDec)? 'derp'  Exp  'derp'  Increment  Block
+          ForStmt        ::= 'fer' 'nom' '=' Exp 'derp'  Exp  'derp'  Increment  Block
           
           WriteStmt      ::= 'pront' Exp 'derp'
           
