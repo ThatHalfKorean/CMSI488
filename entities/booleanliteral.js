@@ -17,4 +17,3 @@ BooleanLiteral.prototype.analyze = function (context) {
 }
 
 module.exports = BooleanLiteral
-

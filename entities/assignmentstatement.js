@@ -14,7 +14,7 @@ AssignmentStatement.prototype.analyze = function (context) {
   this.target.analyze(context)
   this.source.analyze(context)
   this.source.type.mustBeCompatibleWith(this.target.type, 
-    util.format('Type mismatch in assignment: %j = %j', this.target.type, this.source.type))
+  util.format('Type mismatch in assignment: %j = %j', this.target.type, this.source.type))
 }
 
 module.exports = AssignmentStatement
