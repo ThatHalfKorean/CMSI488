@@ -198,7 +198,7 @@ function parseParams(){
   var params = [],
       paramTypes = [];
   if (at(['nom', 'werd', 'buul'])){
-    paramTypes.push(match());
+    paramTypes.push(parseType());
     params.push(match('ID'));
   }
   while (at(',')){
