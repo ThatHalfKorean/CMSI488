@@ -4,7 +4,7 @@ function IncrementStatement(target, symbol) {
 }
 
 IncrementStatement.prototype.toString = function () {
-  return '( ' +this.symbol +' '+ this.target + ')'
+  return '( ' + this.symbol +' '+ this.target + ')'
 }
 
 IncrementStatement.prototype.analyze = function (context) {

@@ -23,7 +23,7 @@ BinaryExpression.prototype.analyze = function (context) {
   } else if (/==|!=/.test(op)) {
     this.mustHaveCompatibleOperands()
     this.type = Type.BOOL
-  } else if (/and|or/.test(op)) {
+  } else if (/\&\&|\|\|/.test(op)) {
     this.mustHaveBooleanOperands()
     this.type = Type.BOOL
   } else {
@@ -75,7 +75,7 @@ BinaryExpression.prototype.mustHaveBooleanOperands = function () {
 
 BinaryExpression.prototype.mustHaveCompatibleOperands = function () {
   var error = this.op.lexeme + ' must have mutually compatible operands'
-  this.left.type.mustBeMutuallyCompatibleWith(this.right.type, error, this.op)
+  this.left.type.mustBeCompatibleWith(this.right.type, error, this.op)
 }
 
 function isIntegerLiteral(operand, value) {
