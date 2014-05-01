@@ -11,11 +11,6 @@ elsh dur
 pront "arfhdsafkjhadsl!" derp
 urp
 
-fer nom i = 0 derp 5 < 10 derp i = i + 1 derp dur
+fer nom i = 0 derp 5 < 10 derp i++ derp dur
   pront 5 derp
-urp
-
-thang dog = dur
-  werd bark: "BARK BARK BITCH" derp
-  nom int: 5 derp
 urp
