@@ -325,6 +325,7 @@ function parseForStatement() {
   match('fer')
   var declaration = parseVariableDeclaration()
   var condition = parseExpression()
+  match();
   var assignment = idChecker()
   var body = parseBlock()
   return new ForStatement(declaration, condition, assignment, body)

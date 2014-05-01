@@ -11,8 +11,6 @@ elsh dur
 pront "arfhdsafkjhadsl!" derp
 urp
 
-nom[] z = [1,2,3,4] derp
-
-fer nom i = 0 derp i < 10 derp i++ derp dur
-  pront i derp
+fer nom i = 0 derp 5 < 10 derp i++ derp dur
+  pront 5 derp
 urp
