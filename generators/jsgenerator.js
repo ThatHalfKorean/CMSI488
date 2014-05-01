@@ -65,6 +65,10 @@ var generator = {
     // TODO: Most likely this is whacked
     emit('{' + o.properties.map(gen).join(',') + '}')
   },
+  
+  'PropertyDeclaration': function (p) {
+    emit(util.format('var %s: %s;', makeVariable(p), p.value ? gen(p.value) : 'undefined'))
+  },
 
   'AssignmentStatement': function (s) {
     emit(util.format('%s = %s;', gen(s.target), gen(s.source)))
