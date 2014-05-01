@@ -11,7 +11,7 @@ FunctionDeclaration.prototype.toString = function () {
 }
 
 FunctionDeclaration.prototype.analyze = function(context) {
-  this.parameters.analyze(context)
+  this.params.analyze(context)
   this.body.analyze(context)
 
   // HC I think something else needs to go here, but I'm not sure what yet. 
