@@ -125,7 +125,7 @@ var generator = {
   },
 
   'WhileStatement': function (s) {
-    emit('while (' + gen(s.condition) + ') {')
+    emit('while ' + gen(s.condition) + ' {')
     gen(s.body)
     emit('}')
   },
