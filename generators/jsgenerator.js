@@ -155,7 +155,16 @@ var generator = {
   'NullLiteral': function (literal) {
     return 'null'
   },
+  
   'BasicVar': function (v) {
+    return makeVariable(v.referent)
+  },
+  
+  'IndexVar': function (v) {
+    return makeVariable(v.referent)
+  },
+  
+  'DottedVar': function (v) {
     return makeVariable(v.referent)
   },
 

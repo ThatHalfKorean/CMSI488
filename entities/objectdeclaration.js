@@ -15,11 +15,11 @@ ObjectDeclaration.prototype.toString = function () {
 }
 
 ObjectDeclaration.prototype.analyze = function (context) {
-	this.type = Type.OBJ 
-	var localContext = context.createChildContext()
-	this.properties.forEach(function (p) {
-		p.analyze(localContext)
-	})
+  this.type = Type.OBJ 
+  var localContext = context.createChildContext()
+  this.properties.forEach(function (p) {
+    p.analyze(localContext)
+  })
 }
 
 module.exports = ObjectDeclaration

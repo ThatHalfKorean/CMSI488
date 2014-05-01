@@ -1,4 +1,3 @@
-
 function ArrayEntity(elements) {
   this.elements = elements
 }
