@@ -8,8 +8,8 @@ IncrementStatement.prototype.toString = function () {
 }
 
 IncrementStatement.prototype.analyze = function (context) {
-	this.target.analyze(context)
-	//context.lookupVariable(this.target)
+  this.target.analyze(context)
+  //context.lookupVariable(this.target)
 }
 
 module.exports = IncrementStatement
