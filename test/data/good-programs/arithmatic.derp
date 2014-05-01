@@ -1,0 +1,11 @@
+nom x = 6 derp
+
+x = x + 6 derp
+
+x = x - 5 derp
+
+nom y = 27 derp
+
+y = x * y derp
+
+y = y / 27 derp
