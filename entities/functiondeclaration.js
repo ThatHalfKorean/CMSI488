@@ -1,7 +1,6 @@
 var Type = require('./type')
 
 function FunctionDeclaration(type, id, params, body) {
-  this.type = type
   this.id = id
   this.params = params
   this.body = body
@@ -9,14 +8,15 @@ function FunctionDeclaration(type, id, params, body) {
 
 FunctionDeclaration.prototype.toString = function () {
   return '( (' + this.type
-               + this.id
+               + this.id.lexeme
                + this.params +
          ' ) ( '+ this.body + ' ))'
 }
 
 FunctionDeclaration.prototype.analyze = function(context) {
-  this.type.analyze(context)
-  this.id.analyze(context)
+  //this.id.analyze(context)
+  //this.type.analyze(context)
+  context.variableMustNotBeAlreadyDeclared(this.id)
   this.params.analyze(context)
   this.body.analyze(context)
 

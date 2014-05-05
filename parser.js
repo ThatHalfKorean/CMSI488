@@ -40,7 +40,7 @@ var Params = require('./entities/params')
 
 
 var tokens
-var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'ID', 'pront', 'herez', 'thang']
+var startingTokens = ['nom', 'buul', 'eef', 'elsheef', 'elsh', 'werd', 'dile', 'fer', 'ID', 'pront', 'herez', 'thang', 'funk']
 
 module.exports = function (scannerOutput) {
   tokens = scannerOutput
@@ -180,6 +180,7 @@ function parseArray(){
 }
 
 function parseFunctionDeclaration(){
+  match();
   var type = parseType();
   var id = match('ID');
   var params = parseParams();

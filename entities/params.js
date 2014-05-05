@@ -12,12 +12,12 @@ Params.prototype.toString = function(){
 }
 
 Params.prototype.analyze = function (context) {
-  this.paramTypes.forEach(function (paramTypes) {
+  /*this.paramTypes.forEach(function (paramTypes) {
     paramTypes.analyze(context)
   })
    this.paramIds.forEach(function (paramIds) {
 	 paramIds.analyze(context)
-  })
+  })*/
 }
 
 module.exports = Params
