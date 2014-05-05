@@ -7,7 +7,7 @@ function FunctionDeclaration(params, body) {
 
 FunctionDeclaration.prototype.toString = function () {
   return '( ('  + this.params +
-         ' ) ( '+ this.body+ ' ))'
+         ' ) ( '+ this.body + ' ))'
 }
 
 FunctionDeclaration.prototype.analyze = function(context) {

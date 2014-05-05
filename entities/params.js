@@ -4,7 +4,11 @@ function Params(paramTypes, paramIds){
 }
 
 Params.prototype.toString = function(){
-  return '(Params '+ this.paramIds.join(' ') +  ' )'
+  var result = ' (Params '
+  for (var i = 0; i < this.paramTypes.length; i++) {
+    result += this.paramTypes[i] + ' ' + this.paramIds[i].lexeme + ((i === this.paramTypes.length - 1) ? '' : ', ')
+  }
+  return result + ')'
 }
 
 Params.prototype.analyze = function (context) {

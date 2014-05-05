@@ -56,11 +56,26 @@ var generator = {
   },
   
   'FunctionDeclaration': function (f) {
-    //emit('function ' + makeVariable(f) + '(' + f.params.paramIds.join(', ').lexeme + ') {')
-	
-	emit(util.format('function %s  %s  {', makeVariable(f), f.params.paramIds.join(', ')))
+    /*var result = ('function ' + makeVariable(f) + '(' )
+    f.params.paramIds.forEach(function (v) {
+      result += (util.format('var %s ', makeVariable(v.referent)))
+    })
+	result += (') {')
+	emit(result)*/
+	emit('function ' + makeVariable(f) + ' (' + gen(f.params) + ') {')
     gen(f.body)
     emit('}')
+  },
+  
+  'Params': function (p) {
+    var result = ''/*
+    p.paramIds.forEach(function (v) {
+      result += (util.format('var %s, ', makeVariable(v.referent)))
+    })*/
+	for (var i = 0; i < p.paramIds.length; i++) {
+	  result += util.format('var %s', makeVariable(p.paramIds[i]) + ((i === p.paramIds.length - 1) ? '' : ', '))
+	}
+	return result
   },
   
   'ObjectDeclaration': function (o) {
@@ -128,7 +143,7 @@ var generator = {
 
   'WriteStatement': function (s) {
     s.expressions.forEach(function (e) {
-      emit(util.format('alert("%s");', gen(e)))
+      emit(util.format('alert(%s);', gen(e)))
     })
   },
 
