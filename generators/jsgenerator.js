@@ -56,8 +56,10 @@ var generator = {
   },
   
   'FunctionDeclaration': function (f) {
-    emit('function ' + makeVariable(f) + '(' + f.params.join(', ') + ') {')
-    gen(s.body)
+    //emit('function ' + makeVariable(f) + '(' + f.params.paramIds.join(', ').lexeme + ') {')
+	
+	emit(util.format('function %s  %s  {', makeVariable(f), f.params.paramIds.join(', ')))
+    gen(f.body)
     emit('}')
   },
   

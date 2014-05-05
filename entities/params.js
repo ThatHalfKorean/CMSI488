@@ -1,15 +1,19 @@
-function Params(paramTypes, params){
+function Params(paramTypes, paramIds){
   this.paramTypes = paramTypes
-  this.params = params
+  this.paramIds = paramIds
 }
 
 Params.prototype.toString = function(){
-  return '(Params ' + JSON.stringify(this.params.lexeme) + ' )'
+  return '(Params '+ this.paramIds.join(' ') +  ' )'
 }
 
 Params.prototype.analyze = function (context) {
-  this.paramTypes.analyze(context)
-  this.params.analyze(context)
+  this.paramTypes.forEach(function (paramTypes) {
+    paramTypes.analyze(context)
+  })
+   this.paramIds.forEach(function (paramIds) {
+	 paramIds.analyze(context)
+  })
 }
 
 module.exports = Params

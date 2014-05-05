@@ -195,19 +195,19 @@ function parseFunctionDeclaration(){
 
 function parseParams(){
   match('(');
-  var params = [],
+  var paramIds = [],
       paramTypes = [];
   if (at(['nom', 'werd', 'buul'])){
-    paramTypes.push(parseType());
-    params.push(match('ID'));
+    paramTypes.push(parseType())
+	paramIds.push(match('ID'))
   }
   while (at(',')){
     match()
-    paramTypes.push(match());
-    params.push(match('ID'));
+    paramTypes.push(parseType())
+	paramIds.push(match('ID'))
   }
   match(')');
-  return new Params(paramTypes, params);
+  return new Params(paramTypes, paramIds);
 }
 
 //needs to be fixed.  What about arrays being passed in? should just push varDecs...
