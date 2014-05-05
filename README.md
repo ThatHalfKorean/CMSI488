@@ -39,7 +39,7 @@ This snippet of code prints out perfect squares using numbers between 1 and 10. 
 
 As with most creatures, crocodiles like to multiply. It comes in handy when ordering large shipments of yoga mats or figuring out how to tip the waiter (s)he just ate. 
           
-          funk tipCalculator (nom amount, nom tip) dur                func tipCalculator (num amount, num tip) {
+          funk nom tipCalculator (nom amount, nom tip) dur            func tipCalculator (num amount, num tip) {
                     herez amount * (tip/100) derp                               return amount * (tip/100);
           urp                                                         }
 
@@ -67,7 +67,7 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           ObjDec         ::= 'thang' Id '=' 'dur' (Type  Id  ':' Exp 'derp')+ 'urp'
           
-          FunDec         ::= funk  Id  Params  Block
+          FunDec         ::= funk Type  Id  Params  Block
           
           Increment      ::= VarExp  ('++' | '--') 'derp'
           
