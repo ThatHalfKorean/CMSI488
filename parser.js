@@ -85,6 +85,8 @@ function parseStatement() {
     return parseForStatement()
   } else if (at('herez')) {
     return parseReturnStatement()
+  }else if (at('funk')){
+    return parseFunctionDeclaration()
   } else {
     error('Statement expected', tokens[0])
   }
@@ -118,15 +120,11 @@ function parseVariableDeclaration() {
     match('derp')
   } else {
     id = match('ID')
-    if (at('(')){
-      value = parseFunctionDeclaration()
-    } else {
-      if(at('=')){
-        match('=')
-        value = parseExpression()
-      }
-      match('derp')
+    if(at('=')){
+      match('=')
+      value = parseExpression()
     }
+	match('derp')
   }
   return new VariableDeclaration(id, type, value)
 }
@@ -160,13 +158,9 @@ function parsePropertyDeclaration() {
     match('derp')
   } else {
     id = match('ID')
-    if(at('(')){
-      value = parseFunctionDeclaration()
-    } else {
-      match(':')
-      value = parseExpression()
-      match('derp')
-    }
+    match(':')
+    value = parseExpression()
+    match('derp')
   }
   return new PropertyDeclaration(id, type, value)
 }
@@ -186,11 +180,13 @@ function parseArray(){
 }
 
 function parseFunctionDeclaration(){
+  var type = parseType();
+  var id = match('ID');
   var params = parseParams();
   //match('dur');
   var body = parseBlock();
   //match('urp');
-  return new FunctionDeclaration(params, body);
+  return new FunctionDeclaration(type, id, params, body);
 }
 
 function parseParams(){
