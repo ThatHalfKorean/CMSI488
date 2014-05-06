@@ -178,11 +178,11 @@ var generator = {
   },
   
   'IndexVar': function (v) {
-    return makeVariable(v.referent)
+    return v.referent + '[' + v.index + ']'
   },
   
   'DottedVar': function (v) {
-    return makeVariable(v.referent)
+    return v.struct + '.' + v.property
   },
 
   'UnaryExpression': function (e) {

@@ -8,7 +8,7 @@ IndexVar.prototype.toString = function () {
 }
 
 IndexVar.prototype.analyze = function (context) {
-  this.array.analyze(context)
+  this.referent = context.lookupVariable(this.array)
   this.index.analyze(context)
 }
 
