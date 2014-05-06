@@ -14,10 +14,11 @@ Params.prototype.toString = function(){
 Params.prototype.analyze = function (context) {
   /*this.paramTypes.forEach(function (paramTypes) {
     paramTypes.analyze(context)
-  })
-   this.paramIds.forEach(function (paramIds) {
-	 paramIds.analyze(context)
   })*/
+  this.paramIds.forEach(function (paramIds) {
+    context.variableMustNotBeAlreadyDeclared(paramIds)
+    context.addVariable(paramIds.lexeme, this)
+  })
 }
 
 module.exports = Params
