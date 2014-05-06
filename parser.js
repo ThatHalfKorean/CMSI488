@@ -18,7 +18,7 @@ var WriteStatement = require('./entities/writestatement')
 var ReturnStatement = require('./entities/returnstatement')
 var IfStatement = require('./entities/ifstatement') //gotta figure out the entities for eefs
 var WhileStatement = require('./entities/whilestatement')
-var CallStatement = require('./entities/callstatement')
+var CallExpression = require('./entities/callexpression')
 var ForStatement = require('./entities/forstatement')
 var NumericLiteral = require('./entities/numericliteral')
 var BooleanLiteral = require('./entities/booleanliteral')
@@ -249,7 +249,7 @@ function parseVar() {
     } else if (at('[')) {
       return parseIndexVar(base)
     } else if (at('(')) {
-      return parseCallStatement(base)
+      return parseCallExpression(base)
     }
   }
 
@@ -276,7 +276,7 @@ function parseIndexVar (array) {
   return indexVar
 }
 
-function parseCallStatement(fn) {
+function parseCallExpression(fn) {
   match('(')
   var expressions = []
   if(!at(')'))
@@ -287,7 +287,7 @@ function parseCallStatement(fn) {
   }
   match(')')
   //match('derp')
-  return new CallStatement(fn.name, expressions)
+  return new CallExpression(fn.name, expressions)
 }
 //how to check for derps when needed...
 

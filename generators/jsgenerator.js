@@ -97,11 +97,6 @@ var generator = {
     })
   },
   
-  'CallStatement': function (s) {
-    // TODO: This needs major fixing
-    emit(util.format('%s = %s;', gen(s.target), gen(s.expressions)))
-  },
-  
   'ForStatement': function (s) {
     function initializer(v) {
       return util.format('var %s = %s', makeVariable(v), v.value ? gen(v.value) : 'undefined')
@@ -175,6 +170,11 @@ var generator = {
   
   'BasicVar': function (v) {
     return makeVariable(v.referent)
+  },
+  
+  'CallExpression': function (s) {
+    // TODO: This needs major fixing
+    emit(util.format('%s = %s;', gen(s.target), gen(s.expressions)))
   },
   
   'IndexVar': function (v) {

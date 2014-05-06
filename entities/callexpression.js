@@ -1,13 +1,13 @@
-function CallStatement(target, expressions) {
+function CallExpression(target, expressions) {
   this.target = target
   this.expressions = expressions
 }
 
-CallStatement.prototype.toString = function () {
+CallExpression.prototype.toString = function () {
   return '( Call ' + this.target + ' ' + this.expressions.join(' ') + ')'
 }
 
-CallStatement.prototype.analyze = function (context) {
+CallExpression.prototype.analyze = function (context) {
   this.target.analyze(context)
   this.expressions.forEach(function (e) {
     e.analyze(context)
@@ -15,4 +15,4 @@ CallStatement.prototype.analyze = function (context) {
   })
 }
 
-module.exports = CallStatement
+module.exports = CallExpression
