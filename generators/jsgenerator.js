@@ -178,6 +178,7 @@ var generator = {
   },
   
   'IndexVar': function (v) {
+    //console.log(v.array)
     return gen(v.array) + '[' + gen(v.index) + ']'
   },
   
