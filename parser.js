@@ -116,7 +116,7 @@ function parseVariableDeclaration() {
     match(']')
     id = match('ID')
     match('=')
-    value = parseArray()
+    value = parseArray(type)
     match('derp')
   } else {
     id = match('ID')
@@ -165,7 +165,7 @@ function parsePropertyDeclaration() {
   return new PropertyDeclaration(id, type, value)
 }
 
-function parseArray(){
+function parseArray(type){
   match('[')
   var elements = []
   if(!at(']')){
@@ -176,7 +176,7 @@ function parseArray(){
     elements.push(parseExpression())
   }
   match(']')
-  return new ArrayEntity(elements)
+  return new ArrayEntity(type, elements)
 }
 
 function parseFunctionDeclaration(){
