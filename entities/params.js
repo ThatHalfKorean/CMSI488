@@ -12,13 +12,12 @@ Params.prototype.toString = function(){
 }
 
 Params.prototype.analyze = function (context) {
-  /*this.paramTypes.forEach(function (paramTypes) {
-    paramTypes.analyze(context)
-  })*/
-  this.paramIds.forEach(function (paramIds) {
-    context.variableMustNotBeAlreadyDeclared(paramIds)
-    context.addVariable(paramIds.lexeme, this)
-  })
+  
+  for(var i = 0; i < this.paramIds.length; i++){
+    context.variableMustNotBeAlreadyDeclared(this.paramIds[i])
+    context.addVariable(this.paramIds[i].lexeme, this.paramIds[i])
+  }
+  console.log(this.paramIds[0])
 }
 
 module.exports = Params
