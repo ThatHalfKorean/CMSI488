@@ -1,3 +1,4 @@
+var util = require('util')
 var Type = require('./type')
 
 function VariableDeclaration(id, type, value) {
@@ -13,6 +14,8 @@ VariableDeclaration.prototype.toString = function () {
 VariableDeclaration.prototype.analyze = function (context) {
   context.variableMustNotBeAlreadyDeclared(this.id)
   context.addVariable(this.id.lexeme, this)
+  this.value.type.mustBeCompatibleWith(this.type, 
+  util.format('Type mismatch in assignment: %j = %j', this.value.type, this.type))
 }
 
 VariableDeclaration.ARBITRARY = new VariableDeclaration('<arbitrary>', Type.ARBITRARY)
