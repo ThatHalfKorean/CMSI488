@@ -1,14 +1,14 @@
-function IndexVar(array, index) {
-  this.array = array
+function IndexVar(token, index) {
+  this.token = token
   this.index = index
 }
 
 IndexVar.prototype.toString = function () {
-  return '([]' + this.array + ' ' + this.index + ')'
+  return '([]' + this.token + ' ' + this.index + ')'
 }
 
 IndexVar.prototype.analyze = function (context) {
-  this.referent = context.lookupVariable(this.array)
+  this.referent = context.lookupVariable(this.token)
   this.index.analyze(context)
 }
 
