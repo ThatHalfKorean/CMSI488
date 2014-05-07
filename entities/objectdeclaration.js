@@ -15,6 +15,8 @@ ObjectDeclaration.prototype.toString = function () {
 }
 
 ObjectDeclaration.prototype.analyze = function (context) {
+  context.variableMustNotBeAlreadyDeclared(this.id)
+  context.addVariable(this.id.lexeme, this)
   this.type = Type.OBJ 
   var localContext = context.createChildContext()
   this.properties.forEach(function (p) {
