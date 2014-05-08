@@ -1,17 +1,17 @@
-function IndexVar(array, index) {
-  this.array = array
+function IndexVar(source, index) {
+  this.source = source
   this.index = index
 }
 
 IndexVar.prototype.toString = function () {
-  return '([]' + this.array + ' ' + this.index + ')'
+  return '([]' + this.source + ' ' + this.index + ')'
 }
 
 IndexVar.prototype.analyze = function (context) {
   
-  //this.referent = context.lookupVariable(this.array)
-  //console.log(this.array)
-  this.array.analyze(context)
+  this.source.analyze(context)
+  this.type = this.source.type
+  
 }
 
 module.exports = IndexVar

@@ -8,8 +8,13 @@ DottedVar.prototype.toString = function () {
 }
 
 DottedVar.prototype.analyze = function (context) {
-  this.referent = context.lookupVariable(this.struct)
-  //this.type.mustBeObject("Must be an Object")
+
+  this.struct.analyze(context)
+  console.log(this.struct.type)
+  console.log(this.property)
+  this.property.analyze(context)
+  this.type = this.struct.type
+
 }
 
 module.exports = DottedVar

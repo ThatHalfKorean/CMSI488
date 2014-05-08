@@ -9,7 +9,6 @@ BasicVar.prototype.toString = function () {
 BasicVar.prototype.analyze = function (context) {
   
   this.referent = context.lookupVariable(this.token)
-  console.log(this.token)
   this.type = this.referent.type
 }
 

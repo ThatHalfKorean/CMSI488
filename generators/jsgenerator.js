@@ -68,10 +68,7 @@ var generator = {
   },
   
   'Params': function (p) {
-    var result = ''/*
-    p.paramIds.forEach(function (v) {
-      result += (util.format('var %s, ', makeVariable(v.referent)))
-    })*/
+  var result = ''
 	for (var i = 0; i < p.paramIds.length; i++) {
 	  result += util.format('var %s', makeVariable(p.paramIds[i]) + ((i === p.paramIds.length - 1) ? '' : ', '))
 	}
@@ -179,11 +176,12 @@ var generator = {
   
   'IndexVar': function (v) {
     //console.log(v.array)
-    return gen(v.array) + '[' + gen(v.index) + ']'
+    return gen(v.source) + '[' + gen(v.index) + ']'
   },
   
   'DottedVar': function (v) {
-    return gen(v.struct) + '.' + v.property
+    console.log(v.property)
+    return gen(v.struct) + '.' + gen(v.property)
   },
 
   'UnaryExpression': function (e) {
