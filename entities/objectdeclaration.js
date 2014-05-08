@@ -20,6 +20,7 @@ ObjectDeclaration.prototype.analyze = function (context) {
   this.type = Type.OBJ 
   this.properties.forEach(function (p) {
     p.analyze(context)
+    //console.log(p)
   })
 }
 

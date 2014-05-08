@@ -10,8 +10,9 @@ DottedVar.prototype.toString = function () {
 DottedVar.prototype.analyze = function (context) {
 
   this.struct.analyze(context)
-  console.log(this.struct.type)
-  console.log(this.property)
+  //console.log(this.struct)
+  //console.log(this.property)
+  //this.referent = context.lookupVariable(this.property)
   this.property.analyze(context)
   this.type = this.struct.type
 

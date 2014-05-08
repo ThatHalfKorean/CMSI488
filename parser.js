@@ -266,7 +266,7 @@ function parseBasicVar () {
 
 function parseDottedVar (struct) {
   match('.')
-  return new DottedVar(struct, match('ID').lexeme)
+  return new DottedVar(struct, parseBasicVar())
 }
 
 function parseIndexVar (array) {

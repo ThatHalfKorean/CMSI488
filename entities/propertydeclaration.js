@@ -13,10 +13,13 @@ PropertyDeclaration.prototype.toString = function () {
 
 PropertyDeclaration.prototype.analyze = function (context) {
   context.variableMustNotBeAlreadyDeclared(this.id)
+  //console.log(this)
   context.addVariable(this.id.lexeme, this)
   this.value.analyze(context)
   this.value.type.mustBeCompatibleWith(this.type, 
   util.format('Type mismatch in assignment: %j = %j', this.value.type, this.type))
 }
+
+PropertyDeclaration.ARBITRARY = new PropertyDeclaration('<arbitrary>', Type.ARBITRARY)
 
 module.exports = PropertyDeclaration
