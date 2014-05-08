@@ -181,7 +181,7 @@ var generator = {
   
   'DottedVar': function (v) {
     //console.log(v.struct)
-    console.log(v.referent)
+    //console.log(v.referent)
     return util.format('%s.%s',  gen(v.struct), gen(v.property))
   },
 

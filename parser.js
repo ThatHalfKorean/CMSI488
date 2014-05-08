@@ -154,7 +154,7 @@ function parsePropertyDeclaration() {
     match(']')
     id = match('ID')
     match(':')
-    value = parseArray()
+    value = parseArray(type)
     match('derp')
   } else {
     id = match('ID')
