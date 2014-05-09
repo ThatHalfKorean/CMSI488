@@ -67,11 +67,11 @@ Granted, this function will not return a neat value rounded to two decimal point
           
           ObjDec         ::= 'thang' Id '=' 'dur' (Type  Id  ':' Exp 'derp')+ 'urp'
           
-          FunDec         ::= funk Type  Id  Params  Block
+          FunDec         ::= 'funk' Type  Id  Params  Block
           
           Increment      ::= VarExp  ('++' | '--') 'derp'
           
-          Type           ::= ( 'nom' | 'buul' | 'werd' | 'thang' )( [] )*
+          Type           ::= ( 'nom' | 'buul' | 'werd' )( [] )*
 
           Params         ::= '(' Type Id (',' Type Id)* ')'  
                     
