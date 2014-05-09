@@ -9,9 +9,10 @@ CallExpression.prototype.toString = function () {
 
 CallExpression.prototype.analyze = function (context) {
   this.target.analyze(context)
+  //console.log(this.target)
   this.expressions.forEach(function (e) {
     e.analyze(context)
-    e.type.mustBeNumber('Expressions in "call" statement must have type Number')
+    //e.type.mustBeInteger('Expressions in "call" statement must have type Number')
   })
 }
 

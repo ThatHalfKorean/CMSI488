@@ -17,6 +17,7 @@ FunctionDeclaration.prototype.analyze = function(context) {
   //this.id.analyze(context)
   //this.type.analyze(context)
   context.variableMustNotBeAlreadyDeclared(this.id)
+  context.addVariable(this.id.lexeme, this)
   this.params.analyze(context)
   this.body.analyze(context)
 

@@ -171,7 +171,17 @@ var generator = {
   
   'CallExpression': function (s) {
     // TODO: This needs major fixing
-    emit(util.format('%s = %s;', gen(s.target), gen(s.expressions)))
+   var exp = '('
+   if(s.expressions.length === 0){
+     exp += ')'
+   } else {
+     exp += s.expressions[0]
+     for (var i = 1; i < s.expressions.length; i++){
+       exp += ',' + s.expressions[i]
+     }
+     exp += ')'
+   }
+   return gen(s.target) + exp
   },
   
   'IndexVar': function (v) {

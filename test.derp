@@ -11,6 +11,30 @@ elsh dur
 pront "arfhdsafkjhadsl!" derp
 urp
 
-fer nom i = 0 derp 5 < 10 derp i++ derp dur
-  pront 5 derp
+fer nom i = 0 derp i < 10 derp i++ derp dur
+  i++ derp
 urp
+
+thang dog= dur
+  werd speak: "Woof" derp
+  nom[] c : [1,7] derp
+urp
+
+pront dog derp
+
+funk nom q(nom z, nom s)dur
+ pront z derp
+urp
+
+nom v = 4 derp
+
+nom[] arr = [3] derp
+
+x = arr[0] derp
+nom b = x derp
+q(1,2)
+
+herez 5 derp
+
+pront dog.c[0] derp
+

@@ -130,7 +130,7 @@ function parseVariableDeclaration() {
 }
 
 function parseType() {
-  if (at(['nom','buul','werd'])) {
+  if (at(['nom','buul','werd','thang'])) {
     return Type.forName(match().lexeme)
   } else {
     error('Type expected', tokens[0])
@@ -139,15 +139,11 @@ function parseType() {
 //must parse type!!! 
 
 function parsePropertyDeclaration() {
-  var type
-  if (at('thang')){
-   parseObjectDeclaration()
-  }
-  else{
-    type = parseType()
-  }
-  var id,
+  var type,
+      id,
       value
+
+  type = parseType()
 	  
   if(at('[')){
     match('[')
@@ -287,7 +283,8 @@ function parseCallExpression(fn) {
   }
   match(')')
   //match('derp')
-  return new CallExpression(fn.name, expressions)
+  return new CallExpression(fn, expressions)
+
 }
 //how to check for derps when needed...
 
